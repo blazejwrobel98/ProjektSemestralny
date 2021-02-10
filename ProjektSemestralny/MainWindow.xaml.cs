@@ -24,5 +24,29 @@ namespace ProjektSemestralny
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Pacjenci newWindow = new Pacjenci();
+            newWindow.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Wizyty newWindow = new Wizyty();
+            newWindow.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Lekarze newWindow = new Lekarze();
+            newWindow.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Pracownicy newWindow = new Pracownicy();
+            newWindow.Show();
+        }
     }
 }
