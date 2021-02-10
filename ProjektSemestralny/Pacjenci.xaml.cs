@@ -24,16 +24,21 @@ namespace ProjektSemestralny
         {
             InitializeComponent();
             this.Pacjenci_table.ItemsSource = db.Pacjent.ToList();
+            this.Loaded += new RoutedEventHandler(MainWindow_Loaded);
         }
-
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Pacjenci_table.Columns[0].Visibility = Visibility.Collapsed;
+            this.Pacjenci_table.Columns[1].Header = "Imię";
+            this.Pacjenci_table.Columns[2].Header = "Nazwisko";
+            this.Pacjenci_table.Columns[4].Header = "Kod";
+            this.Pacjenci_table.Columns[5].Header = "Miejscowość";
+            this.Pacjenci_table.Columns[9].Header = "Choroby";
+            this.Pacjenci_table.Columns[10].Header = "Wizyty";
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
