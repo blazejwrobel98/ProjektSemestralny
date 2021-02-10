@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Choroba">
+          <Key>
+            <PropertyRef Name="ChorobaID" />
+          </Key>
+          <Property Name="ChorobaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" />
+          <Property Name="Objawy" Type="varchar" MaxLength="150" />
+          <Property Name="Leczenie" Type="varchar" MaxLength="150" />
+          <Property Name="Kod_Choroby" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Diagnoza">
+          <Key>
+            <PropertyRef Name="DiagnozaID" />
+          </Key>
+          <Property Name="DiagnozaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="500" />
+          <Property Name="Choroba" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Historia_Chorób">
+          <Key>
+            <PropertyRef Name="Historia_ChoróbID" />
+          </Key>
+          <Property Name="Historia_ChoróbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pacjent" Type="int" Nullable="false" />
+          <Property Name="Pracownik" Type="int" Nullable="false" />
+          <Property Name="Diagnoza" Type="int" Nullable="false" />
+          <Property Name="Zdiagnozowano" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pacjent">
+          <Key>
+            <PropertyRef Name="PacjentID" />
+          </Key>
+          <Property Name="PacjentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imiê" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Pesel" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Kod_Pocztowy" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Miejscowoœæ" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Ulica" Type="varchar" MaxLength="40" />
+          <Property Name="Nr_Domu" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Nr_Lokalu" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="PracownikID" />
+          </Key>
+          <Property Name="PracownikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imiê" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Pesel" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Stanowisko" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Specjalizacja" Type="varchar" MaxLength="30" />
+          <Property Name="Pracuje_Od" Type="int" Nullable="false" />
+          <Property Name="Pracuje_Do" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wizyta">
+          <Key>
+            <PropertyRef Name="WizytaID" />
+          </Key>
+          <Property Name="WizytaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pacjent" Type="int" Nullable="false" />
+          <Property Name="Termin" Type="date" Nullable="false" />
+          <Property Name="Godzina" Type="int" Nullable="false" />
+          <Property Name="Pracownik" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="diag_chorob">
+          <End Role="Choroba" Type="Self.Choroba" Multiplicity="1" />
+          <End Role="Diagnoza" Type="Self.Diagnoza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Choroba">
+              <PropertyRef Name="ChorobaID" />
+            </Principal>
+            <Dependent Role="Diagnoza">
+              <PropertyRef Name="Choroba" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="hisotoria_pacjent">
+          <End Role="Pacjent" Type="Self.Pacjent" Multiplicity="1" />
+          <End Role="Historia_Chorób" Type="Self.Historia_Chorób" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjent">
+              <PropertyRef Name="PacjentID" />
+            </Principal>
+            <Dependent Role="Historia_Chorób">
+              <PropertyRef Name="Pacjent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="historia_diagnoza">
+          <End Role="Diagnoza" Type="Self.Diagnoza" Multiplicity="1" />
+          <End Role="Historia_Chorób" Type="Self.Historia_Chorób" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diagnoza">
+              <PropertyRef Name="DiagnozaID" />
+            </Principal>
+            <Dependent Role="Historia_Chorób">
+              <PropertyRef Name="Diagnoza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="historia_lekarz">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Historia_Chorób" Type="Self.Historia_Chorób" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="PracownikID" />
+            </Principal>
+            <Dependent Role="Historia_Chorób">
+              <PropertyRef Name="Pracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="wizyta_lekarz">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="PracownikID" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Pracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="wizyta_pacjent">
+          <End Role="Pacjent" Type="Self.Pacjent" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjent">
+              <PropertyRef Name="PacjentID" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Pacjent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="Choroba" EntityType="Self.Choroba" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diagnoza" EntityType="Self.Diagnoza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historia_Chorób" EntityType="Self.Historia_Chorób" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pacjent" EntityType="Self.Pacjent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wizyta" EntityType="Self.Wizyta" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="diag_chorob" Association="Self.diag_chorob">
+            <End Role="Choroba" EntitySet="Choroba" />
+            <End Role="Diagnoza" EntitySet="Diagnoza" />
+          </AssociationSet>
+          <AssociationSet Name="hisotoria_pacjent" Association="Self.hisotoria_pacjent">
+            <End Role="Pacjent" EntitySet="Pacjent" />
+            <End Role="Historia_Chorób" EntitySet="Historia_Chorób" />
+          </AssociationSet>
+          <AssociationSet Name="historia_diagnoza" Association="Self.historia_diagnoza">
+            <End Role="Diagnoza" EntitySet="Diagnoza" />
+            <End Role="Historia_Chorób" EntitySet="Historia_Chorób" />
+          </AssociationSet>
+          <AssociationSet Name="historia_lekarz" Association="Self.historia_lekarz">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Historia_Chorób" EntitySet="Historia_Chorób" />
+          </AssociationSet>
+          <AssociationSet Name="wizyta_lekarz" Association="Self.wizyta_lekarz">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+          <AssociationSet Name="wizyta_pacjent" Association="Self.wizyta_pacjent">
+            <End Role="Pacjent" EntitySet="Pacjent" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Choroba">
+          <Key>
+            <PropertyRef Name="ChorobaID" />
+          </Key>
+          <Property Name="ChorobaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Objawy" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Leczenie" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Kod_Choroby" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Diagnoza" Relationship="Self.diag_chorob" FromRole="Choroba" ToRole="Diagnoza" />
+        </EntityType>
+        <EntityType Name="Diagnoza">
+          <Key>
+            <PropertyRef Name="DiagnozaID" />
+          </Key>
+          <Property Name="DiagnozaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Opis" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Choroba" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Choroba1" Relationship="Self.diag_chorob" FromRole="Diagnoza" ToRole="Choroba" />
+          <NavigationProperty Name="Historia_Chorób" Relationship="Self.historia_diagnoza" FromRole="Diagnoza" ToRole="Historia_Chorób" />
+        </EntityType>
+        <EntityType Name="Historia_Chorób">
+          <Key>
+            <PropertyRef Name="Historia_ChoróbID" />
+          </Key>
+          <Property Name="Historia_ChoróbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pacjent" Type="Int32" Nullable="false" />
+          <Property Name="Pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Diagnoza" Type="Int32" Nullable="false" />
+          <Property Name="Zdiagnozowano" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Diagnoza1" Relationship="Self.historia_diagnoza" FromRole="Historia_Chorób" ToRole="Diagnoza" />
+          <NavigationProperty Name="Pacjent1" Relationship="Self.hisotoria_pacjent" FromRole="Historia_Chorób" ToRole="Pacjent" />
+          <NavigationProperty Name="Pracownik1" Relationship="Self.historia_lekarz" FromRole="Historia_Chorób" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="Pacjent">
+          <Key>
+            <PropertyRef Name="PacjentID" />
+          </Key>
+          <Property Name="PacjentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imiê" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kod_Pocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Miejscowoœæ" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Nr_Domu" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nr_Lokalu" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Historia_Chorób" Relationship="Self.hisotoria_pacjent" FromRole="Pacjent" ToRole="Historia_Chorób" />
+          <NavigationProperty Name="Wizyta" Relationship="Self.wizyta_pacjent" FromRole="Pacjent" ToRole="Wizyta" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="PracownikID" />
+          </Key>
+          <Property Name="PracownikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imiê" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stanowisko" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Specjalizacja" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Pracuje_Od" Type="Int32" Nullable="false" />
+          <Property Name="Pracuje_Do" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Historia_Chorób" Relationship="Self.historia_lekarz" FromRole="Pracownik" ToRole="Historia_Chorób" />
+          <NavigationProperty Name="Wizyta" Relationship="Self.wizyta_lekarz" FromRole="Pracownik" ToRole="Wizyta" />
+        </EntityType>
+        <EntityType Name="Wizyta">
+          <Key>
+            <PropertyRef Name="WizytaID" />
+          </Key>
+          <Property Name="WizytaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pacjent" Type="Int32" Nullable="false" />
+          <Property Name="Termin" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Godzina" Type="Int32" Nullable="false" />
+          <Property Name="Pracownik" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pacjent1" Relationship="Self.wizyta_pacjent" FromRole="Wizyta" ToRole="Pacjent" />
+          <NavigationProperty Name="Pracownik1" Relationship="Self.wizyta_lekarz" FromRole="Wizyta" ToRole="Pracownik" />
+        </EntityType>
+        <Association Name="diag_chorob">
+          <End Role="Choroba" Type="Self.Choroba" Multiplicity="1" />
+          <End Role="Diagnoza" Type="Self.Diagnoza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Choroba">
+              <PropertyRef Name="ChorobaID" />
+            </Principal>
+            <Dependent Role="Diagnoza">
+              <PropertyRef Name="Choroba" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="historia_diagnoza">
+          <End Role="Diagnoza" Type="Self.Diagnoza" Multiplicity="1" />
+          <End Role="Historia_Chorób" Type="Self.Historia_Chorób" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diagnoza">
+              <PropertyRef Name="DiagnozaID" />
+            </Principal>
+            <Dependent Role="Historia_Chorób">
+              <PropertyRef Name="Diagnoza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="hisotoria_pacjent">
+          <End Role="Pacjent" Type="Self.Pacjent" Multiplicity="1" />
+          <End Role="Historia_Chorób" Type="Self.Historia_Chorób" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjent">
+              <PropertyRef Name="PacjentID" />
+            </Principal>
+            <Dependent Role="Historia_Chorób">
+              <PropertyRef Name="Pacjent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="historia_lekarz">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Historia_Chorób" Type="Self.Historia_Chorób" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="PracownikID" />
+            </Principal>
+            <Dependent Role="Historia_Chorób">
+              <PropertyRef Name="Pracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="wizyta_pacjent">
+          <End Role="Pacjent" Type="Self.Pacjent" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjent">
+              <PropertyRef Name="PacjentID" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Pacjent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="wizyta_lekarz">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="PracownikID" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Pracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Choroba" EntityType="Self.Choroba" />
+          <EntitySet Name="Diagnoza" EntityType="Self.Diagnoza" />
+          <EntitySet Name="Historia_Chorób" EntityType="Self.Historia_Chorób" />
+          <EntitySet Name="Pacjent" EntityType="Self.Pacjent" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" />
+          <EntitySet Name="Wizyta" EntityType="Self.Wizyta" />
+          <AssociationSet Name="diag_chorob" Association="Self.diag_chorob">
+            <End Role="Choroba" EntitySet="Choroba" />
+            <End Role="Diagnoza" EntitySet="Diagnoza" />
+          </AssociationSet>
+          <AssociationSet Name="historia_diagnoza" Association="Self.historia_diagnoza">
+            <End Role="Diagnoza" EntitySet="Diagnoza" />
+            <End Role="Historia_Chorób" EntitySet="Historia_Chorób" />
+          </AssociationSet>
+          <AssociationSet Name="hisotoria_pacjent" Association="Self.hisotoria_pacjent">
+            <End Role="Pacjent" EntitySet="Pacjent" />
+            <End Role="Historia_Chorób" EntitySet="Historia_Chorób" />
+          </AssociationSet>
+          <AssociationSet Name="historia_lekarz" Association="Self.historia_lekarz">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Historia_Chorób" EntitySet="Historia_Chorób" />
+          </AssociationSet>
+          <AssociationSet Name="wizyta_pacjent" Association="Self.wizyta_pacjent">
+            <End Role="Pacjent" EntitySet="Pacjent" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+          <AssociationSet Name="wizyta_lekarz" Association="Self.wizyta_lekarz">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+          <EntitySetMapping Name="Choroba">
+            <EntityTypeMapping TypeName="Database1Model.Choroba">
+              <MappingFragment StoreEntitySet="Choroba">
+                <ScalarProperty Name="ChorobaID" ColumnName="ChorobaID" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Objawy" ColumnName="Objawy" />
+                <ScalarProperty Name="Leczenie" ColumnName="Leczenie" />
+                <ScalarProperty Name="Kod_Choroby" ColumnName="Kod_Choroby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diagnoza">
+            <EntityTypeMapping TypeName="Database1Model.Diagnoza">
+              <MappingFragment StoreEntitySet="Diagnoza">
+                <ScalarProperty Name="DiagnozaID" ColumnName="DiagnozaID" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Choroba" ColumnName="Choroba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Historia_Chorób">
+            <EntityTypeMapping TypeName="Database1Model.Historia_Chorób">
+              <MappingFragment StoreEntitySet="Historia_Chorób">
+                <ScalarProperty Name="Historia_ChoróbID" ColumnName="Historia_ChoróbID" />
+                <ScalarProperty Name="Pacjent" ColumnName="Pacjent" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+                <ScalarProperty Name="Diagnoza" ColumnName="Diagnoza" />
+                <ScalarProperty Name="Zdiagnozowano" ColumnName="Zdiagnozowano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pacjent">
+            <EntityTypeMapping TypeName="Database1Model.Pacjent">
+              <MappingFragment StoreEntitySet="Pacjent">
+                <ScalarProperty Name="PacjentID" ColumnName="PacjentID" />
+                <ScalarProperty Name="Imiê" ColumnName="Imiê" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="Kod_Pocztowy" ColumnName="Kod_Pocztowy" />
+                <ScalarProperty Name="Miejscowoœæ" ColumnName="Miejscowoœæ" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="Nr_Domu" ColumnName="Nr_Domu" />
+                <ScalarProperty Name="Nr_Lokalu" ColumnName="Nr_Lokalu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownik">
+            <EntityTypeMapping TypeName="Database1Model.Pracownik">
+              <MappingFragment StoreEntitySet="Pracownik">
+                <ScalarProperty Name="PracownikID" ColumnName="PracownikID" />
+                <ScalarProperty Name="Imiê" ColumnName="Imiê" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="Stanowisko" ColumnName="Stanowisko" />
+                <ScalarProperty Name="Specjalizacja" ColumnName="Specjalizacja" />
+                <ScalarProperty Name="Pracuje_Od" ColumnName="Pracuje_Od" />
+                <ScalarProperty Name="Pracuje_Do" ColumnName="Pracuje_Do" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wizyta">
+            <EntityTypeMapping TypeName="Database1Model.Wizyta">
+              <MappingFragment StoreEntitySet="Wizyta">
+                <ScalarProperty Name="WizytaID" ColumnName="WizytaID" />
+                <ScalarProperty Name="Pacjent" ColumnName="Pacjent" />
+                <ScalarProperty Name="Termin" ColumnName="Termin" />
+                <ScalarProperty Name="Godzina" ColumnName="Godzina" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
