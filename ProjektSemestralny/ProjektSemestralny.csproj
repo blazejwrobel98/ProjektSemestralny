@@ -84,13 +84,15 @@
     <Compile Include="Choroba.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Class\LekarzeClass.cs" />
+    <Compile Include="Class\WizytyClass.cs" />
     <Compile Include="Diagnoza.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Historia_Chorób.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Lekarze.xaml.cs">
+    <Compile Include="Windows\Lekarze.xaml.cs">
       <DependentUpon>Lekarze.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model1.cs">
@@ -98,26 +100,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pacjenci.xaml.cs">
+    <Compile Include="Windows\Pacjenci.xaml.cs">
       <DependentUpon>Pacjenci.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class\PacjenciClass.cs" />
     <Compile Include="Pacjent.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pracownicy.xaml.cs">
+    <Compile Include="Windows\Pracownicy.xaml.cs">
       <DependentUpon>Pracownicy.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PracownicyClass.cs" />
+    <Compile Include="Class\PracownicyClass.cs" />
     <Compile Include="Pracownik.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Wizyta.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Wizyty.xaml.cs">
+    <Compile Include="Windows\Wizyty.xaml.cs">
       <DependentUpon>Wizyty.xaml</DependentUpon>
     </Compile>
-    <Page Include="Lekarze.xaml">
+    <Page Include="Windows\Lekarze.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,15 +136,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pacjenci.xaml">
+    <Page Include="Windows\Pacjenci.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pracownicy.xaml">
+    <Page Include="Windows\Pracownicy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Wizyty.xaml">
+    <Page Include="Windows\Wizyty.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
