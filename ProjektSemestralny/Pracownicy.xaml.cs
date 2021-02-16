@@ -19,11 +19,19 @@ namespace ProjektSemestralny
     /// </summary>
     public partial class Pracownicy : Window
     {
+        Database1Entities db = new Database1Entities();
         public Pracownicy()
         {
             InitializeComponent();
+            this.Pracownicy_table.ItemsSource = db.Pracownik.ToList();
+            this.Loaded += new RoutedEventHandler(MainWindow_Loaded);
         }
-
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Pracownicy_table.Columns[0].Visibility = Visibility.Collapsed;
+            this.Pracownicy_table.Columns[1].Header = "Imię";
+            this.Pracownicy_table.Columns[2].Header = "Nazwisko";
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
