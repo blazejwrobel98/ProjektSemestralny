@@ -56,7 +56,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -105,6 +107,7 @@
     <Compile Include="Pracownicy.xaml.cs">
       <DependentUpon>Pracownicy.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PracownicyClass.cs" />
     <Compile Include="Pracownik.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -179,12 +182,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Choroba.datasource" />
-    <None Include="Properties\DataSources\Diagnoza.datasource" />
-    <None Include="Properties\DataSources\Historia_Chorób.datasource" />
-    <None Include="Properties\DataSources\Pacjent.datasource" />
-    <None Include="Properties\DataSources\Pracownik.datasource" />
-    <None Include="Properties\DataSources\Wizyta.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -226,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
