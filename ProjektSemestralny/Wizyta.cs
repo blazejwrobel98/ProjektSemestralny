@@ -20,7 +20,6 @@ namespace ProjektSemestralny
         public System.DateTime Termin { get; set; }
         public int Godzina { get; set; }
         public int Pracownik { get; set; }
-        public Expander Pacjent_Exp { get; set; }
 
         public virtual Pacjent Pacjent1 { get; set; }
         public virtual Pracownik Pracownik1 { get; set; }
