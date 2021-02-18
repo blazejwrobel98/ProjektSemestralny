@@ -5,17 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektSemestralny"
         mc:Ignorable="d"
-        Title="PRZYCHODNIA.exe" Height="450" Width="500">
+        Title="PRZYCHODNIA.exe" Height="351" Width="450">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="745*"/>
-        </Grid.ColumnDefinitions>
-        <Label Content="PRZYCHODNIA" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" FontSize="36" FontFamily="Calibri" FontWeight="Bold"/>
-        <Button Content="Pacjenci" Grid.Column="1" HorizontalAlignment="Left" Margin="106,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Wizyty" Grid.Column="1" HorizontalAlignment="Left" Margin="106,245,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Button Content="Pracownicy" Grid.Column="1" HorizontalAlignment="Left" Margin="323,245,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
-        <Button Content="Lekarze" Grid.Column="1" HorizontalAlignment="Left" Margin="323,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Label Content="PRZYCHODNIA" VerticalAlignment="Top" FontSize="36" FontFamily="Calibri" FontWeight="Bold" Margin="106,33,94,0"/>
+        <Button Content="Pacjenci" HorizontalAlignment="Left" Margin="100,184,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Wizyty" HorizontalAlignment="Left" Margin="100,250,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Pracownicy" Margin="267,250,91,0" VerticalAlignment="Top" Click="Button_Click_3"/>
+        <Button Content="Lekarze" HorizontalAlignment="Left" Margin="267,184,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

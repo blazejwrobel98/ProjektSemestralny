@@ -11,11 +11,13 @@ namespace ProjektSemestralny.Class
         /// Pobieranie danych z tabeli Wizyta
         /// </summary>
         /// <returns>Pobieranie danych z tabeli Wizyta</returns>
-        public List<Wizyta> CreateTable() => db.Wizyta.ToList();
-        public List<Pacjent> GetPacjent(int pacjentid)
+        public List<Wizyta> CreateTable()
         {
-            var pacjenci = db.Pacjent.ToList();
-            return (from x in pacjenci where x.PacjentID == pacjentid select x).ToList();
+                var list = db.Wizyta
+                    .Include("Pacjent1")
+                    .Include("Pracownik1")
+                    .ToList();
+                return list;
         }
     }
 }

@@ -1,18 +1,8 @@
 ﻿using ProjektSemestralny.Class;
-using System;
 using System.Collections.Generic;
-using System.Data;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ProjektSemestralny
 {
@@ -25,21 +15,25 @@ namespace ProjektSemestralny
         public Wizyty()
         {
             InitializeComponent();
-            this.DataTable.ItemsSource = dbclass.CreateTable();
+            var orders = dbclass.CreateTable();
+            List<WizytaView> displayItems = new List<WizytaView>();
+            foreach (var order in orders)
+            {
+                displayItems.Add(new WizytaView(order));
+            }
+            this.DataTable.ItemsSource = displayItems;
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //var counter = this.DataTable.Columns.Count();
-            //this.DataTable.Columns[0].Visibility = Visibility.Collapsed;
-            //this.DataTable.Columns[counter - 1].Visibility = Visibility.Collapsed;
-            //this.DataTable.Columns[counter - 2].Visibility = Visibility.Collapsed;
-
-        }
-        private void ExpanderGenerator(object sender, RoutedEventArgs e)
-        {
-            //TODO//DataRowView dataRowView = (DataRowView)((Expander)e.Source).DataContext;
-            //TODO//int PacjentID = int.Parse(dataRowView[1].ToString());
-            //TODO//((Expander)e.Source).Content = dbclass.GetPacjent(PacjentID);
+            this.DataTable.Columns[0].Header = "Data";
+            this.DataTable.Columns[1].Header = "Godzina";
+            this.DataTable.Columns[2].Header = "Imie";
+            this.DataTable.Columns[3].Header = "Nazwisko";
+            this.DataTable.Columns[4].Header = "Pesel";
+            this.DataTable.Columns[5].Header = "Imie";
+            this.DataTable.Columns[6].Header = "Nazwisko";
+            this.DataTable.Columns[7].Header = "Specjalizacja";
+            this.DataTable.Width = 738;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

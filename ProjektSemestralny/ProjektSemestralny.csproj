@@ -85,6 +85,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Class\LekarzeClass.cs" />
+    <Compile Include="Class\WizytaView.cs" />
     <Compile Include="Class\WizytyClass.cs" />
     <Compile Include="Diagnoza.cs">
       <DependentUpon>Model1.tt</DependentUpon>
