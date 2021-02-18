@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektSemestralny.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,17 +24,17 @@ namespace ProjektSemestralny
         public Pracownicy()
         {
             InitializeComponent();
-            this.DataTable.ItemsSource = dbclass.CreateTable();
+            var workers = dbclass.CreateTable();
+            List<PracownikView> displayItems = new List<PracownikView>();
+            foreach (var worker in workers)
+            {
+                displayItems.Add(new PracownikView(worker));
+            }
+            this.DataTable.ItemsSource = displayItems;
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataTable.Columns[0].Visibility = Visibility.Collapsed;
-            this.DataTable.Columns[5].Visibility = Visibility.Collapsed;
-            this.DataTable.Columns[1].Header = "Imię";
-            this.DataTable.Columns[2].Header = "Nazwisko";
-            var counter = this.DataTable.Columns.Count();
-            this.DataTable.Columns[counter-1].Visibility = Visibility.Collapsed;
-            this.DataTable.Columns[counter-2].Visibility = Visibility.Collapsed;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

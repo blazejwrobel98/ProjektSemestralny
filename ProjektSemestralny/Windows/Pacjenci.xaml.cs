@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektSemestralny.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,20 +24,17 @@ namespace ProjektSemestralny
         public Pacjenci()
         {
             InitializeComponent();
-            this.DataTable.ItemsSource = dbclass.CreateTable();
+            var patients = dbclass.CreateTable();
+            List<PacjentView> displayItems = new List<PacjentView>();
+            foreach (var patient in patients)
+            {
+                displayItems.Add(new PacjentView(patient));
+            }
+            this.DataTable.ItemsSource = displayItems;
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataTable.Columns[0].Visibility = Visibility.Collapsed;
-            this.DataTable.Columns[1].Header = "Imię";
-            this.DataTable.Columns[2].Header = "Nazwisko";
-            this.DataTable.Columns[4].Header = "Kod";
-            this.DataTable.Columns[5].Header = "Miejscowość";
-            this.DataTable.Columns[9].Header = "Choroby";
-            this.DataTable.Columns[10].Header = "Wizyty";
-            var counter = this.DataTable.Columns.Count();
-            this.DataTable.Columns[counter - 1].Visibility = Visibility.Collapsed;
-            this.DataTable.Columns[counter - 2].Visibility = Visibility.Collapsed;
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

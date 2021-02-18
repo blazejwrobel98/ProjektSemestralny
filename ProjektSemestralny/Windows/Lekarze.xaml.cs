@@ -25,14 +25,17 @@ namespace ProjektSemestralny
         public Lekarze()
         {
             InitializeComponent();
-            this.DataTable.ItemsSource = dbclass.CreateTable();
+            var doctors = dbclass.CreateTable();
+            List<LekarzView> displayItems = new List<LekarzView>();
+            foreach (var doctor in doctors)
+            {
+                displayItems.Add(new LekarzView(doctor));
+            }
+            this.DataTable.ItemsSource = displayItems;
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            var counter = this.DataTable.Columns.Count();
-            this.DataTable.Columns[0].Visibility = Visibility.Collapsed;
-            this.DataTable.Columns[counter - 1].Visibility = Visibility.Collapsed;
-            this.DataTable.Columns[counter - 2].Visibility = Visibility.Collapsed;
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

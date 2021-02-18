@@ -8,7 +8,7 @@
         Title="Pacjenci" Height="450" Width="800" Loaded="MainWindow_Loaded">
     <Grid>
         <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="673,368,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <DataGrid x:Name="DataTable" HorizontalAlignment="Left" Height="246" Margin="25,24,0,0" VerticalAlignment="Top" Width="723"/>
+        <DataGrid x:Name="DataTable" Margin="48,25,48,150"/>
 
     </Grid>
 </Window>

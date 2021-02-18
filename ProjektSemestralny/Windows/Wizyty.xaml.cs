@@ -15,11 +15,11 @@ namespace ProjektSemestralny
         public Wizyty()
         {
             InitializeComponent();
-            var orders = dbclass.CreateTable();
+            var meets = dbclass.CreateTable();
             List<WizytaView> displayItems = new List<WizytaView>();
-            foreach (var order in orders)
+            foreach (var meet in meets)
             {
-                displayItems.Add(new WizytaView(order));
+                displayItems.Add(new WizytaView(meet));
             }
             this.DataTable.ItemsSource = displayItems;
         }

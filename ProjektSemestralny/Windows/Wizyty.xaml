@@ -8,11 +8,11 @@
         Title="Wizyty" Height="450" Width="800" Loaded="MainWindow_Loaded"
         ResizeMode="NoResize">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="306" Margin="10,23,0,0" VerticalAlignment="Top" Width="772"/>
-        <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="669,366,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <DataGrid x:Name="DataTable" Height="265" Margin="28,47,28,0" VerticalAlignment="Top" Loaded="MainWindow_Loaded" BorderThickness="0" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False"/>
-        <Label Content="Pacjent" HorizontalAlignment="Left" Margin="303,23,0,0" VerticalAlignment="Top"/>
-        <Label Content="Wizyta" HorizontalAlignment="Left" Margin="82,23,0,0" VerticalAlignment="Top"/>
-        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="542,23,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="47,23,47,149"/>
+        <Button Content="ZAKOŃCZ" Margin="668,366,48,25" Click="Button_Click"/>
+        <DataGrid x:Name="DataTable" Margin="48,47,48,150" Loaded="MainWindow_Loaded" BorderThickness="0" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False"/>
+        <Label Content="Pacjent" HorizontalAlignment="Left" Margin="316,26,0,0" VerticalAlignment="Top"/>
+        <Label Content="Wizyta" HorizontalAlignment="Left" Margin="104,25,0,0" VerticalAlignment="Top"/>
+        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="542,26,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
