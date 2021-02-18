@@ -8,7 +8,7 @@
         Title="Wizyty" Height="450" Width="800" Loaded="MainWindow_Loaded">
     <Grid>
         <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="669,366,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <DataGrid x:Name="DataTable" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="330" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" IsReadOnly="True">
+        <DataGrid x:Name="DataTable" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="330" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path='WizytaID'}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Pacjent" Binding="{Binding Path='Pacjent'}" IsReadOnly="True" />
@@ -18,7 +18,7 @@
                 <DataGridTemplateColumn Header="PacjentID">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="Pacjent_info" Click="ExpanderGenerator"/>
+                            <Expander Name="Pacjent_info" Expanded="ExpanderGenerator"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

@@ -37,14 +37,9 @@ namespace ProjektSemestralny
         }
         private void ExpanderGenerator(object sender, RoutedEventArgs e)
         {
-            var curItem = ((DataGridRow)DataTable.ContainerFromElement((Button)sender));
-            DataTable.SelectedItem = (DataGridRow)curItem;
-            var RowID = DataTable.SelectedIndex;
-            var ColumnID = 1;
-            TextBlock x = (TextBlock)DataTable.Columns[ColumnID].GetCellContent(DataTable.Items[RowID]);
-            int PacjentID = int.Parse(x.Text);
-            MessageBox.Show(dbclass.GetPacjent(PacjentID));
-            //this.ExpandTable.ItemsSource = dbclass.GetPacjent(PacjentID);
+            //TODO//DataRowView dataRowView = (DataRowView)((Expander)e.Source).DataContext;
+            //TODO//int PacjentID = int.Parse(dataRowView[1].ToString());
+            //TODO//((Expander)e.Source).Content = dbclass.GetPacjent(PacjentID);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
