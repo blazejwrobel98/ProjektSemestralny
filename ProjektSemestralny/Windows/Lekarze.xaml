@@ -8,7 +8,16 @@
         Title="Lekarze" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="671,372,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <DataGrid x:Name="DataTable" Margin="48,25,48,200" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" Loaded="MainWindow_Loaded"/>
+        <DataGrid x:Name="DataTable" Margin="48,25,48,200" CanUserAddRows="False" IsReadOnly="True" CanUserResizeRows="False" MouseDoubleClick="Mouse_Click" CanUserReorderColumns="False" CanUserResizeColumns="False" ColumnWidth="85" Loaded="MainWindow_Loaded"/>
+        <TextBox x:Name="lekarz_imie" HorizontalAlignment="Left" Height="23" Margin="49,245,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="lekarz_nazwisko" HorizontalAlignment="Left" Height="23" Margin="216,245,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="lekarz_pesel" HorizontalAlignment="Left" Height="23" Margin="383,245,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="lekarz_specjalizacja" HorizontalAlignment="Left" Height="23" Margin="49,302,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="lekarz_pracaod" HorizontalAlignment="Left" Height="23" Margin="216,302,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="lekarz_pracado" HorizontalAlignment="Left" Height="23" Margin="383,302,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" />
+        <Button Content="ZATWIERDŹ" HorizontalAlignment="Left" Margin="68,365,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_1"/>
+        <Button Content="USUŃ" HorizontalAlignment="Left" Margin="235,365,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_2"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="404,365,0,0" VerticalAlignment="Top" Width="81" Height="24"/>
 
     </Grid>
 </Window>
