@@ -1,6 +1,7 @@
 ﻿using ProjektSemestralny.Class;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,10 @@ namespace ProjektSemestralny
         public Pacjenci()
         {
             InitializeComponent();
+            Load_Table();
+        }
+        private void Load_Table()
+        {
             var patients = dbclass.CreateTable();
             List<PacjentView> displayItems = new List<PacjentView>();
             foreach (var patient in patients)
@@ -36,9 +41,65 @@ namespace ProjektSemestralny
         {
 
         }
+        private void Mouse_Click(object sender, MouseButtonEventArgs e)
+        {
+            foreach (PacjentView pacjent in DataTable.SelectedItems)
+            {
+                Input_Imie.Text = pacjent.Imie.ToString();
+                Input_Nazwisko.Text = pacjent.Nazwisko.ToString();
+                Input_Pesel.Text = pacjent.Pesel.ToString();
+                Input_KodPocztowy.Text = pacjent.Kod_Pocztowy.ToString();
+                Input_Miejscowosc.Text = pacjent.Miejscowosc.ToString();
+                Input_Ulica.Text = pacjent.Ulica.ToString();
+                Input_NrDomu.Text = pacjent.Nr_Domu.ToString();
+                Input_NrLokalu.Text = pacjent.Nr_Lokalu.ToString();
+            }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Wywołanie zmiany wartości w tabeli Pacjent
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Pacjent pacjent = new Pacjent();
+            pacjent.Imie = Input_Imie.Text;
+            pacjent.Nazwisko = Input_Nazwisko.Text;
+            pacjent.Pesel = Input_Pesel.Text;
+            pacjent.Kod_Pocztowy = Input_KodPocztowy.Text;
+            pacjent.Miejscowosc = Input_Miejscowosc.Text;
+            pacjent.Ulica = Input_Ulica.Text;
+            pacjent.Nr_Domu = Input_NrDomu.Text;
+            pacjent.Nr_Lokalu = Input_NrLokalu.Text;
+            dbclass.ChangePatientValue(pacjent);
+            Load_Table();
+        }
+        /// <summary>
+        /// Wywołanie usunięcia rekordu z tabeli Pacjent
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            foreach (PacjentView pacjentview in DataTable.SelectedItems)
+            {
+                Pacjent pacjent = new Pacjent();
+                pacjent.Imie = pacjentview.Imie.ToString();
+                pacjent.Nazwisko = pacjentview.Nazwisko.ToString();
+                pacjent.Pesel = pacjentview.Pesel.ToString();
+                pacjent.Kod_Pocztowy = pacjentview.Kod_Pocztowy.ToString();
+                pacjent.Miejscowosc = pacjentview.Miejscowosc.ToString();
+                pacjent.Ulica = pacjentview.Ulica.ToString();
+                pacjent.Nr_Domu = pacjentview.Nr_Domu.ToString();
+                pacjent.Nr_Lokalu = pacjentview.Nr_Lokalu.ToString();
+                dbclass.DeletePatient(pacjent);
+            }
+            Load_Table();
         }
     }
 }

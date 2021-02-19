@@ -8,7 +8,7 @@
         Title="Pracownicy" Height="450" Width="800" Loaded="MainWindow_Loaded">
     <Grid>
         <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="674,365,0,0" VerticalAlignment="Top" Width="78" Click="Button_Click" Height="24"/>
-        <DataGrid x:Name="DataTable" Margin="48,25,48,150"/>
+        <DataGrid x:Name="DataTable" Margin="48,25,48,200"/>
 
     </Grid>
 </Window>

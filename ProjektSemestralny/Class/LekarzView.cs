@@ -17,7 +17,7 @@ namespace ProjektSemestralny.Class
 
         public LekarzView(Pracownik pracownik)
         {
-            Imie = pracownik.Imiê;
+            Imie = pracownik.Imie;
             Nazwisko = pracownik.Nazwisko;
             Pesel = pracownik.Pesel;
             Specjalizacja = pracownik.Specjalizacja;

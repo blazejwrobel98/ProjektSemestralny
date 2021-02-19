@@ -13,10 +13,10 @@ namespace ProjektSemestralny
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Database1Entities : DbContext
+    public partial class Database1Entities1 : DbContext
     {
-        public Database1Entities()
-            : base("name=Database1Entities")
+        public Database1Entities1()
+            : base("name=Database1Entities1")
         {
         }
     
@@ -27,7 +27,7 @@ namespace ProjektSemestralny
     
         public virtual DbSet<Choroba> Choroba { get; set; }
         public virtual DbSet<Diagnoza> Diagnoza { get; set; }
-        public virtual DbSet<Historia_Chorób> Historia_Chorób { get; set; }
+        public virtual DbSet<Historia_Chorob> Historia_Chorob { get; set; }
         public virtual DbSet<Pacjent> Pacjent { get; set; }
         public virtual DbSet<Pracownik> Pracownik { get; set; }
         public virtual DbSet<Wizyta> Wizyta { get; set; }

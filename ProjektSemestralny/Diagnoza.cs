@@ -10,14 +10,14 @@
 namespace ProjektSemestralny
 {
     using System;
-    using System.Collections.ObjectModel;
+    using System.Collections.Generic;
     
     public partial class Diagnoza
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Diagnoza()
         {
-            this.Historia_Chorób = new ObservableCollection<Historia_Chorób>();
+            this.Historia_Chorob = new HashSet<Historia_Chorob>();
         }
     
         public int DiagnozaID { get; set; }
@@ -26,6 +26,6 @@ namespace ProjektSemestralny
     
         public virtual Choroba Choroba1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableCollection<Historia_Chorób> Historia_Chorób { get; set; }
+        public virtual ICollection<Historia_Chorob> Historia_Chorob { get; set; }
     }
 }

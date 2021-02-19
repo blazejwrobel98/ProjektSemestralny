@@ -19,11 +19,11 @@ namespace ProjektSemestralny.Class
 
         public PacjentView(Pacjent pacjent)
         {
-            Imie = pacjent.Imiê;
+            Imie = pacjent.Imie;
             Nazwisko = pacjent.Nazwisko;
             Pesel = pacjent.Pesel;
             Kod_Pocztowy = pacjent.Kod_Pocztowy;
-            Miejscowosc = pacjent.Miejscowoœæ;
+            Miejscowosc = pacjent.Miejscowosc;
             Ulica = pacjent.Ulica;
             Nr_Domu = pacjent.Nr_Domu;
             Nr_Lokalu = pacjent.Nr_Lokalu;

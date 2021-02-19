@@ -93,36 +93,46 @@
     <Compile Include="Diagnoza.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Historia_Chorób.cs">
+    <Compile Include="Historia_Chorob.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Lekarze.xaml.cs">
-      <DependentUpon>Lekarze.xaml</DependentUpon>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pacjent.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pracownik.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Lekarze.xaml.cs">
+      <DependentUpon>Lekarze.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Pacjenci.xaml.cs">
       <DependentUpon>Pacjenci.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\PacjenciClass.cs" />
-    <Compile Include="Pacjent.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Windows\Pracownicy.xaml.cs">
       <DependentUpon>Pracownicy.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\PracownicyClass.cs" />
-    <Compile Include="Pracownik.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Windows\Wizyty.xaml.cs">
+      <DependentUpon>Wizyty.xaml</DependentUpon>
     </Compile>
     <Compile Include="Wizyta.cs">
       <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Wizyty.xaml.cs">
-      <DependentUpon>Wizyty.xaml</DependentUpon>
     </Compile>
     <Page Include="Windows\Lekarze.xaml">
       <SubType>Designer</SubType>
@@ -154,16 +164,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -207,8 +207,8 @@
     </Content>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

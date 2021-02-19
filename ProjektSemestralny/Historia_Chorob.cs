@@ -10,11 +10,11 @@
 namespace ProjektSemestralny
 {
     using System;
-    using System.Collections.ObjectModel;
+    using System.Collections.Generic;
     
-    public partial class Historia_Chorób
+    public partial class Historia_Chorob
     {
-        public int Historia_ChoróbID { get; set; }
+        public int Historia_ChorobID { get; set; }
         public int Pacjent { get; set; }
         public int Pracownik { get; set; }
         public int Diagnoza { get; set; }

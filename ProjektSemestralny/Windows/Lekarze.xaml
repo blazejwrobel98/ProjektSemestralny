@@ -8,7 +8,7 @@
         Title="Lekarze" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="671,372,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <DataGrid x:Name="DataTable" Margin="48,25,48,150" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" Loaded="MainWindow_Loaded"/>
+        <DataGrid x:Name="DataTable" Margin="48,25,48,200" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" Loaded="MainWindow_Loaded"/>
 
     </Grid>
 </Window>

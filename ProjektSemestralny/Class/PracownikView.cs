@@ -16,7 +16,7 @@ namespace ProjektSemestralny.Class
         public int Praca_Stop { get; set; }
         public PracownikView(Pracownik pracownik)
         {
-            Imie = pracownik.Imiê;
+            Imie = pracownik.Imie;
             Nazwisko = pracownik.Nazwisko;
             Pesel = pracownik.Pesel;
             Stanowisko = pracownik.Stanowisko;

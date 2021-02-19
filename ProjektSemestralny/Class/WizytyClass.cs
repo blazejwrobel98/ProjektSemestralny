@@ -6,7 +6,7 @@ namespace ProjektSemestralny.Class
 {
     class WizytyClass
     {
-        Database1Entities db = new Database1Entities();
+        Database1Entities1 db = new Database1Entities1();
         /// <summary>
         /// Pobieranie danych z tabeli Wizyta
         /// </summary>

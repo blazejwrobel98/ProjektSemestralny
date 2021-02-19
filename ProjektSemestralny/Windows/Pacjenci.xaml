@@ -8,7 +8,25 @@
         Title="Pacjenci" Height="450" Width="800" Loaded="MainWindow_Loaded">
     <Grid>
         <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="673,368,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <DataGrid x:Name="DataTable" Margin="48,25,48,150"/>
+        <DataGrid x:Name="DataTable" Margin="48,25,48,200" MouseDoubleClick="Mouse_Click" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsReadOnly="True"/>
+        <TextBox x:Name="Input_Imie" HorizontalAlignment="Left" Height="23" Margin="48,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Input_Nazwisko" HorizontalAlignment="Left" Height="23" Margin="195,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Input_Pesel" HorizontalAlignment="Left" Height="23" Margin="345,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="Input_KodPocztowy" HorizontalAlignment="Left" Height="23" Margin="48,308,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Input_Miejscowosc" HorizontalAlignment="Left" Height="23" Margin="195,308,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Input_Ulica" HorizontalAlignment="Left" Height="23" Margin="345,308,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Input_NrDomu" HorizontalAlignment="Left" Height="23" Margin="45,368,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Input_NrLokalu" HorizontalAlignment="Left" Height="23" Margin="195,368,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="90,232,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="223,232,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="385,232,0,0" VerticalAlignment="Top"/>
+        <Label Content="Kod Pocztowy" HorizontalAlignment="Left" Margin="65,282,0,0" VerticalAlignment="Top"/>
+        <Label Content="Miejscowosc" HorizontalAlignment="Left" Margin="223,282,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ulica" HorizontalAlignment="Left" Margin="384,282,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nr Domu" HorizontalAlignment="Left" Margin="74,342,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nr Lokalu" HorizontalAlignment="Left" Margin="224,342,0,0" VerticalAlignment="Top"/>
+        <Button Content="ZMIEŃ" HorizontalAlignment="Left" Margin="345,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="USUŃ" HorizontalAlignment="Left" Margin="451,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

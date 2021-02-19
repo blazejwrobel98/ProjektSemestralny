@@ -19,12 +19,12 @@ namespace ProjektSemestralny.Class
 
         public WizytaView(Wizyta wizyta)
         {
-            pacjent_imie = wizyta.Pacjent1.Imiê;
+            pacjent_imie = wizyta.Pacjent1.Imie;
             pacjent_nazwisko = wizyta.Pacjent1.Nazwisko;
             pacjent_pesel = wizyta.Pacjent1.Pesel;
             wizyta_data = wizyta.Termin.ToString("dd/MM/yyyy");
             wizyta_godzina = wizyta.Godzina;
-            lekarz_imie = wizyta.Pracownik1.Imiê;
+            lekarz_imie = wizyta.Pracownik1.Imie;
             lekarz_nazwisko = wizyta.Pracownik1.Nazwisko;
             lekarz_specjalizacja = wizyta.Pracownik1.Specjalizacja;
         }

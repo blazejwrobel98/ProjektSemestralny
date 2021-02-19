@@ -5,7 +5,7 @@ namespace ProjektSemestralny
 {
     class PracownicyClass
     {
-        Database1Entities db = new Database1Entities();
+        Database1Entities1 db = new Database1Entities1();
         /// <summary>
         /// Pobieranie danych z tabeli Pracownik z wykluczeniem lekarzy
         /// </summary>

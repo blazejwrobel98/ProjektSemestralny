@@ -10,9 +10,8 @@
 namespace ProjektSemestralny
 {
     using System;
-    using System.Collections.ObjectModel;
-    using System.Windows.Controls;
-
+    using System.Collections.Generic;
+    
     public partial class Wizyta
     {
         public int WizytaID { get; set; }
@@ -20,8 +19,7 @@ namespace ProjektSemestralny
         public System.DateTime Termin { get; set; }
         public int Godzina { get; set; }
         public int Pracownik { get; set; }
-        public Expander Pacjent_Exp { get; set; }
-
+    
         public virtual Pacjent Pacjent1 { get; set; }
         public virtual Pracownik Pracownik1 { get; set; }
     }

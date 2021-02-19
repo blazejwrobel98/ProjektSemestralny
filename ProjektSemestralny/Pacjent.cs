@@ -10,30 +10,30 @@
 namespace ProjektSemestralny
 {
     using System;
-    using System.Collections.ObjectModel;
+    using System.Collections.Generic;
     
     public partial class Pacjent
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pacjent()
         {
-            this.Historia_Chorób = new ObservableCollection<Historia_Chorób>();
-            this.Wizyta = new ObservableCollection<Wizyta>();
+            this.Historia_Chorob = new HashSet<Historia_Chorob>();
+            this.Wizyta = new HashSet<Wizyta>();
         }
     
         public int PacjentID { get; set; }
-        public string Imiê { get; set; }
+        public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public string Pesel { get; set; }
         public string Kod_Pocztowy { get; set; }
-        public string Miejscowoœæ { get; set; }
+        public string Miejscowosc { get; set; }
         public string Ulica { get; set; }
         public string Nr_Domu { get; set; }
         public string Nr_Lokalu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableCollection<Historia_Chorób> Historia_Chorób { get; set; }
+        public virtual ICollection<Historia_Chorob> Historia_Chorob { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableCollection<Wizyta> Wizyta { get; set; }
+        public virtual ICollection<Wizyta> Wizyta { get; set; }
     }
 }
