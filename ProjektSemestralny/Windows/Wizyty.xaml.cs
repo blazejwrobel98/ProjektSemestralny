@@ -60,6 +60,14 @@ namespace ProjektSemestralny
                 Wizyta wizyta = new Wizyta();
                 wizyta.WizytaID = wizytaview.wizyta_id;
                 dbclass.DeleteRow(wizyta);
+                wizyta_data.Text = "";
+                wizyta_godzina.Text = "";
+                wizyta_pacjent_imie.Text = "";
+                wizyta_pacjent_nazwisko.Text = "";
+                wizyta_pacjent_pesel.Text = "";
+                wizyta_lekarz_imie.Text = "";
+                wizyta_lekarz_nazwisko.Text = "";
+                wizyta_lekarz_specjalizacja.Text = "";
             }
             LoadTable();
         }

@@ -7,8 +7,23 @@
         mc:Ignorable="d"
         Title="Pracownicy" Height="450" Width="800" Loaded="MainWindow_Loaded">
     <Grid>
-        <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="674,365,0,0" VerticalAlignment="Top" Width="78" Click="Button_Click" Height="24"/>
-        <DataGrid x:Name="DataTable" Margin="48,25,48,200"/>
+        <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="674,365,0,0" VerticalAlignment="Top" Width="78" Click="Button_Click" Height="24" />
+        <DataGrid x:Name="DataTable" Margin="48,25,48,200" CanUserAddRows="False" IsReadOnly="True" CanUserResizeRows="False" MouseDoubleClick="Mouse_Click" CanUserReorderColumns="False" CanUserResizeColumns="False" ColumnWidth="85"/>
+        <TextBox x:Name="pracownik_imie" HorizontalAlignment="Left" Height="23" Margin="49,245,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="pracownik_nazwisko" HorizontalAlignment="Left" Height="23" Margin="216,245,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="pracownik_pesel" HorizontalAlignment="Left" Height="23" Margin="383,245,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="pracownik_stanowisko" HorizontalAlignment="Left" Height="23" Margin="49,302,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="pracownik_pracaod" HorizontalAlignment="Left" Height="23" Margin="216,302,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="pracownik_pracado" HorizontalAlignment="Left" Height="23" Margin="383,302,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" />
+        <Button Content="ZATWIERDŹ" HorizontalAlignment="Left" Margin="68,365,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_1"/>
+        <Button Content="USUŃ" HorizontalAlignment="Left" Margin="235,365,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_2"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="404,365,0,0" VerticalAlignment="Top" Width="81" Height="24"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="79,219,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="235,219,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="421,219,0,0" VerticalAlignment="Top"/>
+        <Label Content="Stanowisko" HorizontalAlignment="Left" Margin="68,276,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pracuje OD" HorizontalAlignment="Left" Margin="235,276,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pracuje DO" HorizontalAlignment="Left" Margin="404,276,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -89,16 +89,17 @@ namespace ProjektSemestralny
             foreach (PacjentView pacjentview in DataTable.SelectedItems)
             {
                 Pacjent pacjent = new Pacjent();
-                pacjent.Imie = pacjentview.Imie.ToString();
-                pacjent.Nazwisko = pacjentview.Nazwisko.ToString();
                 pacjent.Pesel = pacjentview.Pesel.ToString();
-                pacjent.Kod_Pocztowy = pacjentview.Kod_Pocztowy.ToString();
-                pacjent.Miejscowosc = pacjentview.Miejscowosc.ToString();
-                pacjent.Ulica = pacjentview.Ulica.ToString();
-                pacjent.Nr_Domu = pacjentview.Nr_Domu.ToString();
-                pacjent.Nr_Lokalu = pacjentview.Nr_Lokalu.ToString();
                 dbclass.DeletePatient(pacjent);
             }
+            Input_Imie.Text = "";
+            Input_Nazwisko.Text = "";
+            Input_Pesel.Text = "";
+            Input_KodPocztowy.Text = "";
+            Input_Miejscowosc.Text = "";
+            Input_Ulica.Text = "";
+            Input_NrDomu.Text = "";
+            Input_NrLokalu.Text = "";
             Load_Table();
         }
     }
