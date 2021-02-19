@@ -19,5 +19,14 @@ namespace ProjektSemestralny.Class
                     .ToList();
                 return list;
         }
+        public void DeleteRow(Wizyta wizyta)
+        {
+            var Query = (from el in db.Wizyta where el.WizytaID == wizyta.WizytaID select el).ToList();
+            foreach(var row in Query)
+            {
+                db.Wizyta.Remove(row);
+                db.SaveChanges();
+            }
+        }
     }
 }
