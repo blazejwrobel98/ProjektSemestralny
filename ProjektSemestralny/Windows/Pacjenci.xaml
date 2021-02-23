@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektSemestralny"
         mc:Ignorable="d"
-        Title="Pacjenci" Height="450" Width="800" Loaded="MainWindow_Loaded">
+        Title="Pacjenci" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
-        <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="673,368,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="ZAKOŃCZ" HorizontalAlignment="Left" Margin="671,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <DataGrid x:Name="DataTable" Margin="48,25,48,200" MouseDoubleClick="Mouse_Click" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsReadOnly="True"/>
         <TextBox x:Name="Input_Imie" HorizontalAlignment="Left" Height="23" Margin="48,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Input_Nazwisko" HorizontalAlignment="Left" Height="23" Margin="195,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Input_Pesel" HorizontalAlignment="Left" Height="23" Margin="345,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="Input_Pesel" HorizontalAlignment="Left" Height="23" Margin="345,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Input_KodPocztowy" HorizontalAlignment="Left" Height="23" Margin="48,308,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Input_Miejscowosc" HorizontalAlignment="Left" Height="23" Margin="195,308,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Input_Ulica" HorizontalAlignment="Left" Height="23" Margin="345,308,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
@@ -27,6 +27,8 @@
         <Label Content="Nr Lokalu" HorizontalAlignment="Left" Margin="224,342,0,0" VerticalAlignment="Top"/>
         <Button Content="ZMIEŃ" HorizontalAlignment="Left" Margin="345,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <Button Content="USUŃ" HorizontalAlignment="Left" Margin="451,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="557,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+        <Button Content="WYCZYŚĆ" HorizontalAlignment="Left" Margin="557,327,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
 
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using ProjektSemestralny.Class;
+using ProjektSemestralny.Windows;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,7 +28,7 @@ namespace ProjektSemestralny
             InitializeComponent();
             Load_Table();
         }
-        private void Load_Table()
+        public void Load_Table()
         {
             var patients = dbclass.CreateTable();
             List<PacjentView> displayItems = new List<PacjentView>();
@@ -48,6 +49,7 @@ namespace ProjektSemestralny
                 Input_Imie.Text = pacjent.Imie.ToString();
                 Input_Nazwisko.Text = pacjent.Nazwisko.ToString();
                 Input_Pesel.Text = pacjent.Pesel.ToString();
+                Input_Pesel.IsReadOnly = true;
                 Input_KodPocztowy.Text = pacjent.Kod_Pocztowy.ToString();
                 Input_Miejscowosc.Text = pacjent.Miejscowosc.ToString();
                 Input_Ulica.Text = pacjent.Ulica.ToString();
@@ -92,9 +94,40 @@ namespace ProjektSemestralny
                 pacjent.Pesel = pacjentview.Pesel.ToString();
                 dbclass.DeletePatient(pacjent);
             }
+            ClearInputs();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Pacjent pacjent = new Pacjent();
+            pacjent.Imie = Input_Imie.Text;
+            pacjent.Nazwisko = Input_Nazwisko.Text;
+            pacjent.Pesel = Input_Pesel.Text;
+            pacjent.Kod_Pocztowy = Input_KodPocztowy.Text;
+            pacjent.Miejscowosc = Input_Miejscowosc.Text;
+            pacjent.Ulica = Input_Ulica.Text;
+            pacjent.Nr_Domu = Input_NrDomu.Text;
+            pacjent.Nr_Lokalu = Input_NrLokalu.Text;
+            try
+            {
+                dbclass.AddPatient(pacjent);
+            }
+            finally
+            {
+                ClearInputs();
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            ClearInputs();
+        }
+        private void ClearInputs()
+        {
             Input_Imie.Text = "";
             Input_Nazwisko.Text = "";
             Input_Pesel.Text = "";
+            Input_Pesel.IsReadOnly = false;
             Input_KodPocztowy.Text = "";
             Input_Miejscowosc.Text = "";
             Input_Ulica.Text = "";

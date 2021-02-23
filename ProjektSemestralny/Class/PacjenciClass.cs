@@ -54,5 +54,10 @@ namespace ProjektSemestralny
             }
             db.SaveChanges();
         }
+        public void AddPatient(Pacjent pacjent)
+        {
+            db.Pacjent.Add(pacjent);
+            db.SaveChanges();
+        }
     }
 }
