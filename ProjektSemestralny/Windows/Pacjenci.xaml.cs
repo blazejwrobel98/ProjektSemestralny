@@ -1,19 +1,9 @@
 ﻿using ProjektSemestralny.Class;
-using ProjektSemestralny.Windows;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ProjektSemestralny
 {
@@ -78,8 +68,11 @@ namespace ProjektSemestralny
             pacjent.Ulica = Input_Ulica.Text;
             pacjent.Nr_Domu = Input_NrDomu.Text;
             pacjent.Nr_Lokalu = Input_NrLokalu.Text;
-            dbclass.ChangePatientValue(pacjent);
-            Load_Table();
+            if (ValidateInputs())
+            {
+                dbclass.ChangePatientValue(pacjent);
+                Load_Table();
+            }
         }
         /// <summary>
         /// Wywołanie usunięcia rekordu z tabeli Pacjent
@@ -108,13 +101,20 @@ namespace ProjektSemestralny
             pacjent.Ulica = Input_Ulica.Text;
             pacjent.Nr_Domu = Input_NrDomu.Text;
             pacjent.Nr_Lokalu = Input_NrLokalu.Text;
-            try
+            if (ValidateInputs())
             {
-                dbclass.AddPatient(pacjent);
-            }
-            finally
-            {
-                ClearInputs();
+                try
+                {
+                    dbclass.AddPatient(pacjent);
+                }
+                catch (Exception ex)
+                {
+                    AlertLabel.Content = ex.Message.ToString();
+                }
+                finally
+                {
+                    Load_Table();
+                }
             }
         }
 
@@ -133,7 +133,90 @@ namespace ProjektSemestralny
             Input_Ulica.Text = "";
             Input_NrDomu.Text = "";
             Input_NrLokalu.Text = "";
+            AlertLabel.Content = "";
             Load_Table();
+        }
+        private bool ValidateInputs()
+        {
+            bool state = true;
+            if (Input_Imie.Text.Length > 20)
+            {
+                MessageBox.Show("Imie : Za dużo znaków");
+                state = false;
+            }
+            else if (Input_Imie.Text.Length < 2)
+            {
+                MessageBox.Show("Imie : Za mało znaków");
+                state = false;
+            }
+
+            if (Input_Nazwisko.Text.Length > 40)
+            {
+                MessageBox.Show("Nazwisko : Za dużo znaków");
+                state = false;
+            }
+            else if (Input_Nazwisko.Text.Length < 2)
+            {
+                MessageBox.Show("Nazwisko : Za mało znaków");
+                state = false;
+            }
+
+            if (Input_Pesel.Text.Length > 11)
+            {
+                MessageBox.Show("Pesel : Za dużo znaków");
+                state = false;
+            }
+            else if(Input_Pesel.Text.Length < 11)
+            {
+                MessageBox.Show("Pesel : Za mało znaków");
+                state = false;
+            }
+
+            if (Input_KodPocztowy.Text.Length > 6)
+            {
+                MessageBox.Show("Kod pocztowy : Za dużo znaków");
+                state = false;
+            }
+            else if (Input_KodPocztowy.Text.Length < 6)
+            {
+                MessageBox.Show("Kod pocztowy : Za mało znaków");
+                state = false;
+            }
+
+            if (Input_Miejscowosc.Text.Length > 40)
+            {
+                MessageBox.Show("Miejscowość : Za dużo znaków");
+                state = false;
+            }
+            else if (Input_Miejscowosc.Text.Length < 2)
+            {
+                MessageBox.Show("Miejscowość : Za mało znaków");
+                state = false;
+            }
+
+            if (Input_Ulica.Text.Length > 40)
+            {
+                MessageBox.Show("Ulica : Za dużo znaków");
+                state = false;
+            }
+
+            if (Input_NrDomu.Text.Length > 4)
+            {
+                MessageBox.Show("Nr domu : Za dużo znaków");
+                state = false;
+            }
+            else if (Input_NrDomu.Text.Length < 1)
+            {
+                MessageBox.Show("Nr domu : Za mało znaków");
+                state = false;
+            }
+
+            if (Input_NrLokalu.Text.Length > 3)
+            {
+                MessageBox.Show("Nr lokalu : Za dużo znaków");
+                state = false;
+            }
+            return state;
         }
     }
 }

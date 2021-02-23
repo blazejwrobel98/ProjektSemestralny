@@ -83,5 +83,10 @@ namespace ProjektSemestralny
             this.DataTable.Columns[7].Header = "Nazwisko";
             this.DataTable.Columns[8].Header = "Specjalizacja";
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

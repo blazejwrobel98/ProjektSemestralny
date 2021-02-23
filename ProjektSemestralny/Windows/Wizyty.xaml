@@ -23,6 +23,6 @@
         <TextBox x:Name="wizyta_lekarz_nazwisko" HorizontalAlignment="Left" Height="23" Margin="202,366,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBox x:Name="wizyta_lekarz_specjalizacja" HorizontalAlignment="Left" Height="23" Margin="365,366,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <Button Content="USUŃ" HorizontalAlignment="Left" Margin="515,361,0,0" VerticalAlignment="Top" Width="85" Height="28" Click="Button_Click_1"/>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="515,309,0,0" VerticalAlignment="Top" Width="87" Height="28"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="515,309,0,0" VerticalAlignment="Top" Width="87" Height="28" Click="Button_Click_2"/>
     </Grid>
 </Window>

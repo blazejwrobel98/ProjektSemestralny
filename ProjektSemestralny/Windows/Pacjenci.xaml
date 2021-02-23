@@ -29,6 +29,7 @@
         <Button Content="USUŃ" HorizontalAlignment="Left" Margin="451,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
         <Button Content="DODAJ" HorizontalAlignment="Left" Margin="557,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
         <Button Content="WYCZYŚĆ" HorizontalAlignment="Left" Margin="557,327,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+        <Label x:Name="AlertLabel" HorizontalAlignment="Left" Margin="499,258,0,0" VerticalAlignment="Top" Height="50" Width="247"/>
 
     </Grid>
 </Window>

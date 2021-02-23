@@ -19,13 +19,13 @@ namespace ProjektSemestralny
             var OldValQuery= (from el in db.Pacjent where el.Pesel == pacjent.Pesel select el).ToList();
             foreach(var OldVal in OldValQuery)
             {
-                OldVal.Imie = pacjent.Imie;
-                OldVal.Nazwisko = pacjent.Nazwisko;
-                OldVal.Kod_Pocztowy = pacjent.Kod_Pocztowy;
-                OldVal.Miejscowosc = pacjent.Miejscowosc;
-                OldVal.Ulica = pacjent.Ulica;
-                OldVal.Nr_Domu = pacjent.Nr_Domu;
-                OldVal.Nr_Lokalu = pacjent.Nr_Lokalu;
+                if(OldVal.Imie != pacjent.Imie) OldVal.Imie = pacjent.Imie;
+                if(OldVal.Nazwisko != pacjent.Nazwisko) OldVal.Nazwisko = pacjent.Nazwisko;
+                if(OldVal.Kod_Pocztowy != pacjent.Kod_Pocztowy) OldVal.Kod_Pocztowy = pacjent.Kod_Pocztowy;
+                if(OldVal.Miejscowosc != pacjent.Miejscowosc) OldVal.Miejscowosc = pacjent.Miejscowosc;
+                if(OldVal.Ulica != pacjent.Ulica) OldVal.Ulica = pacjent.Ulica;
+                if(OldVal.Nr_Domu != pacjent.Nr_Domu) OldVal.Nr_Domu = pacjent.Nr_Domu;
+                if(OldVal.Nr_Lokalu != pacjent.Nr_Lokalu) OldVal.Nr_Lokalu = pacjent.Nr_Lokalu;
             }
             db.SaveChanges();
         }
@@ -56,8 +56,26 @@ namespace ProjektSemestralny
         }
         public void AddPatient(Pacjent pacjent)
         {
-            db.Pacjent.Add(pacjent);
-            db.SaveChanges();
+            if (PatientExists(pacjent))
+            {
+                throw new Exception("Pacjent już istnieje");
+            }
+            else
+            {
+                db.Pacjent.Add(pacjent);
+                db.SaveChanges();
+            }
+        }
+        private bool PatientExists(Pacjent pacjent)
+        {
+            if ((from el in db.Pacjent where el.Pesel == pacjent.Pesel select el).ToList().Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
