@@ -13,6 +13,7 @@ namespace ProjektSemestralny
     public partial class Pacjenci : Window
     {
         PacjenciClass dbclass = new PacjenciClass();
+        Functions functions = new Functions();
         public Pacjenci()
         {
             InitializeComponent();
@@ -139,83 +140,52 @@ namespace ProjektSemestralny
         private bool ValidateInputs()
         {
             bool state = true;
-            if (Input_Imie.Text.Length > 20)
+            var alerts = new List<string>();
+            if (Input_Imie.Text.Length < 2)
             {
-                MessageBox.Show("Imie : Za dużo znaków");
-                state = false;
-            }
-            else if (Input_Imie.Text.Length < 2)
-            {
-                MessageBox.Show("Imie : Za mało znaków");
+                alerts.Add("Imie : Za mało znaków");
                 state = false;
             }
 
-            if (Input_Nazwisko.Text.Length > 40)
+            if (Input_Nazwisko.Text.Length < 2)
             {
-                MessageBox.Show("Nazwisko : Za dużo znaków");
-                state = false;
-            }
-            else if (Input_Nazwisko.Text.Length < 2)
-            {
-                MessageBox.Show("Nazwisko : Za mało znaków");
+                alerts.Add("Nazwisko : Za mało znaków");
                 state = false;
             }
 
-            if (Input_Pesel.Text.Length > 11)
+            if(Input_Pesel.Text.Length < 11)
             {
-                MessageBox.Show("Pesel : Za dużo znaków");
+                alerts.Add("Pesel : Za mało znaków");
                 state = false;
             }
-            else if(Input_Pesel.Text.Length < 11)
+            else
             {
-                MessageBox.Show("Pesel : Za mało znaków");
+                if (!int.TryParse(Input_Pesel.Text, out int p))
+                {
+                    alerts.Add("Pesel : Błędne dane");
+                    state = false;
+                }
+            }
+
+            if (Input_KodPocztowy.Text.Length < 6)
+            {
+                alerts.Add("Kod pocztowy : Za mało znaków");
                 state = false;
             }
 
-            if (Input_KodPocztowy.Text.Length > 6)
+            if (Input_Miejscowosc.Text.Length < 2)
             {
-                MessageBox.Show("Kod pocztowy : Za dużo znaków");
-                state = false;
-            }
-            else if (Input_KodPocztowy.Text.Length < 6)
-            {
-                MessageBox.Show("Kod pocztowy : Za mało znaków");
+                alerts.Add("Miejscowość : Za mało znaków");
                 state = false;
             }
 
-            if (Input_Miejscowosc.Text.Length > 40)
+            if (Input_NrDomu.Text.Length < 1)
             {
-                MessageBox.Show("Miejscowość : Za dużo znaków");
-                state = false;
-            }
-            else if (Input_Miejscowosc.Text.Length < 2)
-            {
-                MessageBox.Show("Miejscowość : Za mało znaków");
+                alerts.Add("Nr domu : Za mało znaków");
                 state = false;
             }
 
-            if (Input_Ulica.Text.Length > 40)
-            {
-                MessageBox.Show("Ulica : Za dużo znaków");
-                state = false;
-            }
-
-            if (Input_NrDomu.Text.Length > 4)
-            {
-                MessageBox.Show("Nr domu : Za dużo znaków");
-                state = false;
-            }
-            else if (Input_NrDomu.Text.Length < 1)
-            {
-                MessageBox.Show("Nr domu : Za mało znaków");
-                state = false;
-            }
-
-            if (Input_NrLokalu.Text.Length > 3)
-            {
-                MessageBox.Show("Nr lokalu : Za dużo znaków");
-                state = false;
-            }
+            functions.AlertBox(alerts);
             return state;
         }
     }
