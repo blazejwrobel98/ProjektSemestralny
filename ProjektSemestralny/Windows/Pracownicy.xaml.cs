@@ -1,5 +1,6 @@
 ﻿using ProjektSemestralny.Class;
 using ProjektSemestralny.Windows;
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -13,6 +14,7 @@ namespace ProjektSemestralny
     /// </summary>
     public partial class Pracownicy : Page
     {
+        Functions functions = new Functions();
         PracownicyClass dbclass = new PracownicyClass();
         /// <summary>
         /// Załadowanie Panelu
@@ -68,15 +70,18 @@ namespace ProjektSemestralny
         /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Pracownik pracownik = new Pracownik();
-            pracownik.Imie = pracownik_imie.Text;
-            pracownik.Nazwisko = pracownik_nazwisko.Text;
-            pracownik.Pesel = pracownik_pesel.Text;
-            pracownik.Stanowisko = pracownik_stanowisko.Text;
-            pracownik.Pracuje_Od = int.Parse(pracownik_pracaod.Text);
-            pracownik.Pracuje_Do = int.Parse(pracownik_pracado.Text);
-            dbclass.ChangePracownikValue(pracownik);
-            Load_Table();
+            if (ValidateInputs())
+            {
+                Pracownik pracownik = new Pracownik();
+                pracownik.Imie = pracownik_imie.Text;
+                pracownik.Nazwisko = pracownik_nazwisko.Text;
+                pracownik.Pesel = pracownik_pesel.Text;
+                pracownik.Stanowisko = pracownik_stanowisko.Text;
+                pracownik.Pracuje_Od = int.Parse(pracownik_pracaod.Text);
+                pracownik.Pracuje_Do = int.Parse(pracownik_pracado.Text);
+                dbclass.ChangePracownikValue(pracownik);
+                Load_Table();
+            }
         }
         /// <summary>
         /// Usunięcie pracownika
@@ -91,13 +96,7 @@ namespace ProjektSemestralny
                 pracownik.Pesel = pracownikView.Pesel.ToString();
                 dbclass.DeletePracownik(pracownik);
             }
-            pracownik_imie.Text = "";
-            pracownik_nazwisko.Text = "";
-            pracownik_pesel.Text = "";
-            pracownik_stanowisko.Text = "";
-            pracownik_pracaod.Text = "";
-            pracownik_pracado.Text = "";
-            Load_Table();
+            ClearInputs();
         }
         /// <summary>
         /// Czyszczenie zawartości TextBox-ów
@@ -125,6 +124,72 @@ namespace ProjektSemestralny
             e.Handled = regex.IsMatch(e.Text);
         }
         /// <summary>
+        /// Walidacja danych w TextBox-ach
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateInputs()
+        {
+            bool state = true;
+            var alerts = new List<string>();
+
+            if (pracownik_imie.Text.Length < 2)
+            {
+                alerts.Add("Imie : Za mało znaków");
+                state = false;
+            }
+
+            if (pracownik_nazwisko.Text.Length < 2)
+            {
+                alerts.Add("Nazwisko : Za mało znaków");
+                state = false;
+            }
+
+            if (pracownik_pesel.Text.Length < 11)
+            {
+                alerts.Add("Pesel : Za mało znaków");
+                state = false;
+            }
+
+            if (pracownik_stanowisko.Text.Length < 2)
+            {
+                alerts.Add("Stanowisko : Za mało znaków");
+                state = false;
+            }
+
+            if (pracownik_pracaod.Text.Length < 1)
+            {
+                alerts.Add("Praca od : Za mało znaków");
+                state = false;
+            }
+            if (pracownik_pracado.Text.Length < 1)
+            {
+                alerts.Add("Praca do : Za mało znaków");
+                state = false;
+            }
+            if (int.Parse(pracownik_pracado.Text) < int.Parse(pracownik_pracaod.Text))
+            {
+                alerts.Add("Praca do : Nie może być mniejsze niż Praca od");
+                state = false;
+            }
+            if (int.Parse(pracownik_pracaod.Text) < 8 || int.Parse(pracownik_pracaod.Text) > 20)
+            {
+                alerts.Add("Praca do : Poprawny zakres pomiędzy 8 i 20");
+                state = false;
+            }
+            if (int.Parse(pracownik_pracado.Text) < 8 || int.Parse(pracownik_pracado.Text) > 20)
+            {
+                alerts.Add("Praca do : Poprawny zakres pomiędzy 8 i 20");
+                state = false;
+            }
+            if (pracownik_stanowisko.Text.ToLower() == "lekarz")
+            {
+                alerts.Add("Stanowisko : Dodawanie lekarzy jest w innym formularzu");
+                state = false;
+            }
+            if (!state) functions.AlertBox(alerts);
+            return state;
+        }
+        /// <summary>
         /// Wywołanie stylowania po wczytaniu panelu
         /// </summary>
         /// <param name="sender"></param>
@@ -142,5 +207,36 @@ namespace ProjektSemestralny
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Button_Click_3(object sender, RoutedEventArgs e) => ClearInputs();
+        /// <summary>
+        /// Dodawanie nowego Pracownika
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (ValidateInputs())
+            {
+                try
+                {
+                    Pracownik pracownik = new Pracownik();
+                    pracownik.Imie = pracownik_imie.Text;
+                    pracownik.Nazwisko = pracownik_nazwisko.Text;
+                    pracownik.Pesel = pracownik_pesel.Text;
+                    pracownik.Stanowisko = pracownik_stanowisko.Text;
+                    pracownik.Pracuje_Od = int.Parse(pracownik_pracaod.Text);
+                    pracownik.Pracuje_Do = int.Parse(pracownik_pracado.Text);
+                    pracownik.Stanowisko = "Lekarz";
+                    if (dbclass.AddWorker(pracownik)) ClearInputs();
+                }
+                catch (Exception ex)
+                {
+                    AlertLabel.Content = ex.Message.ToString();
+                }
+                finally
+                {
+                    Load_Table();
+                }
+            }
+        }
     }
 }

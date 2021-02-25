@@ -63,7 +63,7 @@ namespace ProjektSemestralny
         {
             if (WorkerExists(pracownik))
             {
-                throw new Exception("Lekarz już istnieje");
+                throw new Exception("Pracownik już istnieje");
             }
             else
             {

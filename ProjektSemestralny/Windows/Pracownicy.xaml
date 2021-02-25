@@ -17,7 +17,7 @@
         <TextBox x:Name="pracownik_pracado" HorizontalAlignment="Left" Height="23" Margin="383,332,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
         <Button Content="ZATWIERDŹ" HorizontalAlignment="Left" Margin="68,395,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_1"/>
         <Button Content="USUŃ" HorizontalAlignment="Left" Margin="235,395,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_2"/>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="404,395,0,0" VerticalAlignment="Top" Width="81" Height="24"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="404,395,0,0" VerticalAlignment="Top" Width="81" Height="24" Click="Button_Click_4"/>
         <Label Content="Imie" HorizontalAlignment="Left" Margin="84,249,0,0" VerticalAlignment="Top"/>
         <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="240,249,0,0" VerticalAlignment="Top"/>
         <Label Content="Pesel" HorizontalAlignment="Left" Margin="426,249,0,0" VerticalAlignment="Top"/>
