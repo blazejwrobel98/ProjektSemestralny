@@ -90,5 +90,10 @@ namespace ProjektSemestralny.Class
             }
             return id;
         }
+        public List<Pracownik> GetHours(int ID)
+        {
+            var query = (from el in db.Pracownik where el.PracownikID == ID select el).ToList();
+            return query;
+        }
     }
 }

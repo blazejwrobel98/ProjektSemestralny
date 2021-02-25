@@ -113,10 +113,7 @@ namespace ProjektSemestralny.Windows
                     this.next2.IsEnabled = true;
                 }
             }
-            if(this.DataTable.Visibility == Visibility.Visible)
-            {
-                //TODO
-            }
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -132,6 +129,73 @@ namespace ProjektSemestralny.Windows
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             ChangeVisibility(1);
+        }
+
+        private void next3_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeVisibility(4);
+            this.PickedDate.Text = wizyta.Termin.ToShortDateString();
+            CheckHours(wizyta);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            ChangeVisibility(2);
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (this.DataGrid.Visibility == Visibility.Visible)
+            {
+                if (DataPicker.SelectedDate != null)
+                {
+                    wizyta.Termin = ((DateTime)DataPicker.SelectedDate);
+                    this.next3.IsEnabled = true;
+                }
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            ChangeVisibility(3);
+        }
+
+        private void next5_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            if( this.AvailableHours.Text != "")
+            {
+                wizyta.Godzina = int.Parse(this.AvailableHours.Text);
+                if (wizytyClass.AddRow(wizyta)) MessageBox.Show("Dodano wizytę");
+                App.ParentWindowRef.ParentFrame.Navigate(new Wizyty());
+            }
+        }
+        private void CheckHours(Wizyta wizyta)
+        {
+            AvailableHours.Items.Clear();
+            Pracownik pracownik = new Pracownik();
+            var hours = lekarzeClass.GetHours(wizyta.Pracownik);
+            foreach(var el in hours)
+            {
+                pracownik.Pracuje_Od = el.Pracuje_Od;
+                pracownik.Pracuje_Do = el.Pracuje_Do;
+            }
+            for (int i = pracownik.Pracuje_Od; i < pracownik.Pracuje_Do; i++)
+            {
+                AvailableHours.Items.Add(i);
+            }
+            var sethours = wizytyClass.ListRows(wizyta);
+            if (sethours.Count > 0)
+            {
+                foreach(var el in sethours)
+                {
+                    AvailableHours.Items.Remove(el.Godzina);
+                }
+            }
         }
     }
 }
