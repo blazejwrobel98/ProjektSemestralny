@@ -19,7 +19,7 @@ namespace ProjektSemestralny.Windows
     /// <summary>
     /// Logika interakcji dla klasy AddWizyta.xaml
     /// </summary>
-    public partial class AddWizyta : Window
+    public partial class AddWizyta : Page
     {
         PacjenciClass pacjenciClass = new PacjenciClass();
         LekarzeClass lekarzeClass = new LekarzeClass();
@@ -38,7 +38,7 @@ namespace ProjektSemestralny.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            App.ParentWindowRef.ParentFrame.Navigate(new Wizyty());
         }
         private void ShowPacjentGrid()
         {

@@ -89,14 +89,7 @@ namespace ProjektSemestralny
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-                AddWizyta window1 = new AddWizyta();
-                window1.Closed += new EventHandler(window1_Closed);
-                window1.Show();
-            
-        }
-        void window1_Closed(object sender, EventArgs e)
-        {
-            LoadTable();
+            App.ParentWindowRef.ParentFrame.Navigate(new AddWizyta());
         }
     }
 }
