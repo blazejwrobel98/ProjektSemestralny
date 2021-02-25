@@ -1,8 +1,11 @@
 ﻿using ProjektSemestralny.Class;
+using ProjektSemestralny.Windows;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ProjektSemestralny
@@ -10,7 +13,7 @@ namespace ProjektSemestralny
     /// <summary>
     /// Logika interakcji dla klasy Wizyty.xaml
     /// </summary>
-    public partial class Wizyty : Window
+    public partial class Wizyty : Page
     {
         WizytyClass dbclass = new WizytyClass();
         public Wizyty()
@@ -36,7 +39,7 @@ namespace ProjektSemestralny
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            App.ParentWindowRef.ParentFrame.Navigate(new MainPanel());
         }
         private void Mouse_Click(object sender, MouseButtonEventArgs e)
         {
@@ -86,7 +89,14 @@ namespace ProjektSemestralny
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+                AddWizyta window1 = new AddWizyta();
+                window1.Closed += new EventHandler(window1_Closed);
+                window1.Show();
+            
+        }
+        void window1_Closed(object sender, EventArgs e)
+        {
+            LoadTable();
         }
     }
 }

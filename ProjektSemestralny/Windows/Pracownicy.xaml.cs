@@ -1,8 +1,10 @@
 ﻿using ProjektSemestralny.Class;
+using ProjektSemestralny.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,7 +20,7 @@ namespace ProjektSemestralny
     /// <summary>
     /// Logika interakcji dla klasy Pracownicy.xaml
     /// </summary>
-    public partial class Pracownicy : Window
+    public partial class Pracownicy : Page
     {
         PracownicyClass dbclass = new PracownicyClass();
         public Pracownicy()
@@ -55,7 +57,7 @@ namespace ProjektSemestralny
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            App.ParentWindowRef.ParentFrame.Navigate(new MainPanel());
         }
         /// <summary>
         /// Wpisanie wartości z klikniętego podwójnie wiersza w do TexBoxów umożliwiających edycję
@@ -111,6 +113,28 @@ namespace ProjektSemestralny
             pracownik_pracaod.Text = "";
             pracownik_pracado.Text = "";
             Load_Table();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            ClearInputs();
+        }
+        private void ClearInputs()
+        {
+            pracownik_imie.Text = "";
+            pracownik_nazwisko.Text = "";
+            pracownik_pesel.Text = "";
+            pracownik_pesel.IsReadOnly = false;
+            pracownik_stanowisko.Text = "";
+            pracownik_pracaod.Text = "";
+            pracownik_pracado.Text = "";
+            AlertLabel.Content = "";
+            Load_Table();
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

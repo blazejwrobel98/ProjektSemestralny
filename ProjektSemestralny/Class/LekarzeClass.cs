@@ -56,5 +56,39 @@ namespace ProjektSemestralny.Class
             }
             db.SaveChanges();
         }
+        public bool AddLekarz(Pracownik pracownik)
+        {
+            if (WorkerExists(pracownik))
+            {
+                throw new Exception("Lekarz już istnieje");
+            }
+            else
+            {
+                db.Pracownik.Add(pracownik);
+                db.SaveChanges();
+                return true;
+            }
+        }
+        private bool WorkerExists(Pracownik pracownik)
+        {
+            if ((from el in db.Pracownik where el.Pesel == pracownik.Pesel select el).ToList().Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public int GetId(string pesel)
+        {
+            int id = 0;
+            var query = (from el in db.Pracownik where el.Pesel == pesel select el).ToList();
+            foreach (var el in query)
+            {
+                id = el.PracownikID;
+            }
+            return id;
+        }
     }
 }

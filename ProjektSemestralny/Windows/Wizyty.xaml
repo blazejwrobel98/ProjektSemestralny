@@ -1,28 +1,38 @@
-﻿<Window x:Class="ProjektSemestralny.Wizyty"
+﻿<Page x:Class="ProjektSemestralny.Wizyty"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektSemestralny"
         mc:Ignorable="d"
-        Title="Wizyty" Height="450" Width="800" Loaded="MainWindow_Loaded"
-        ResizeMode="NoResize">
+        Title="Wizyty" Height="450" Width="800" Loaded="MainWindow_Loaded">
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" Margin="47,23,47,199"/>
-        <Button Content="ZAKOŃCZ" Margin="668,366,48,25" Click="Button_Click"/>
+        <Button Content="POWRÓT" Margin="667,383,0,0" Click="Button_Click" HorizontalAlignment="Left" Width="83" Height="28" VerticalAlignment="Top"/>
         <DataGrid x:Name="DataTable" Margin="48,47,48,200" MouseDoubleClick="Mouse_Click" Loaded="MainWindow_Loaded" BorderThickness="0" CanUserAddRows="False" IsReadOnly="True" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" Width = "738" ColumnWidth="85"/>
         <Label Content="Pacjent" HorizontalAlignment="Left" Margin="316,26,0,0" VerticalAlignment="Top"/>
         <Label Content="Wizyta" HorizontalAlignment="Left" Margin="104,25,0,0" VerticalAlignment="Top"/>
         <Label Content="Lekarz" HorizontalAlignment="Left" Margin="542,26,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="wizyta_data" HorizontalAlignment="Left" Height="23" Margin="48,256,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="wizyta_godzina" HorizontalAlignment="Left" Height="23" Margin="202,256,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="wizyta_pacjent_imie" HorizontalAlignment="Left" Height="23" Margin="48,309,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="wizyta_pacjent_nazwisko" HorizontalAlignment="Left" Height="23" Margin="202,309,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="wizyta_pacjent_pesel" HorizontalAlignment="Left" Height="23" Margin="365,309,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="wizyta_lekarz_imie" HorizontalAlignment="Left" Height="23" Margin="48,366,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="wizyta_lekarz_nazwisko" HorizontalAlignment="Left" Height="23" Margin="202,366,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="wizyta_lekarz_specjalizacja" HorizontalAlignment="Left" Height="23" Margin="365,366,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <Button Content="USUŃ" HorizontalAlignment="Left" Margin="515,361,0,0" VerticalAlignment="Top" Width="85" Height="28" Click="Button_Click_1"/>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="515,309,0,0" VerticalAlignment="Top" Width="87" Height="28" Click="Button_Click_2"/>
+        <TextBox x:Name="wizyta_data" HorizontalAlignment="Left" Height="23" Margin="59,278,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="wizyta_godzina" HorizontalAlignment="Left" Height="23" Margin="219,278,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="wizyta_pacjent_imie" HorizontalAlignment="Left" Height="23" Margin="59,331,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="wizyta_pacjent_nazwisko" HorizontalAlignment="Left" Height="23" Margin="219,331,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="wizyta_pacjent_pesel" HorizontalAlignment="Left" Height="23" Margin="379,331,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="wizyta_lekarz_imie" HorizontalAlignment="Left" Height="23" Margin="59,388,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="wizyta_lekarz_nazwisko" HorizontalAlignment="Left" Height="23" Margin="219,388,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="wizyta_lekarz_specjalizacja" HorizontalAlignment="Left" Height="23" Margin="379,388,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Button Content="USUŃ" HorizontalAlignment="Left" Margin="539,383,0,0" VerticalAlignment="Top" Width="87" Height="28" Click="Button_Click_1"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="539,331,0,0" VerticalAlignment="Top" Width="87" Height="28" Click="Button_Click_2"/>
+        <Label Content="Wizyta" HorizontalAlignment="Left" Margin="8,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.37,1.615"/>
+        <Label Content="Data" HorizontalAlignment="Left" Margin="101,250,0,0" VerticalAlignment="Top"/>
+        <Label Content="Godzina" HorizontalAlignment="Left" Margin="252,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-0.385"/>
+        <Label Content="Pacjent" HorizontalAlignment="Left" Margin="7,305,0,0" VerticalAlignment="Top"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="103,305,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="252,305,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="422,305,0,0" VerticalAlignment="Top"/>
+        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="8,365,0,0" VerticalAlignment="Top"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="103,365,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="246,365,0,0" VerticalAlignment="Top"/>
+        <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="402,365,0,0" VerticalAlignment="Top"/>
     </Grid>
-</Window>
+</Page>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ProjektSemestralny
@@ -56,6 +57,31 @@ namespace ProjektSemestralny
                 db.Pracownik.Remove(row);
             }
             db.SaveChanges();
+        }
+
+        public bool AddWorker(Pracownik pracownik)
+        {
+            if (WorkerExists(pracownik))
+            {
+                throw new Exception("Lekarz już istnieje");
+            }
+            else
+            {
+                db.Pracownik.Add(pracownik);
+                db.SaveChanges();
+                return true;
+            }
+        }
+        private bool WorkerExists(Pracownik pracownik)
+        {
+            if ((from el in db.Pracownik where el.Pesel == pracownik.Pesel select el).ToList().Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -1,0 +1,39 @@
+﻿<Window x:Class="ProjektSemestralny.Windows.AddWizyta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektSemestralny.Windows"
+        mc:Ignorable="d"
+        Title="AddWizyta" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid x:Name="PacjentGrid" Margin="0,0,0,75" Visibility="Collapsed">
+            <DataGrid x:Name="PacjentTable" Margin="48,25,48,150" MouseDoubleClick="Mouse_Click" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsReadOnly="True"/>
+            <TextBox x:Name="Input_Imie" HorizontalAlignment="Left" Height="23" Margin="48,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+            <TextBox x:Name="Input_Nazwisko" HorizontalAlignment="Left" Height="23" Margin="195,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+            <TextBox x:Name="Input_Pesel" HorizontalAlignment="Left" Height="23" Margin="345,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+            <Label Content="Imie" HorizontalAlignment="Left" Margin="90,232,0,0" VerticalAlignment="Top"/>
+            <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="223,232,0,0" VerticalAlignment="Top"/>
+            <Label Content="Pesel" HorizontalAlignment="Left" Margin="385,232,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="next1" Content="DALEJ" HorizontalAlignment="Left" Margin="671,304,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" IsEnabled="False"/>
+        </Grid>
+        <Grid x:Name="LekarzGrid" Margin="0,0,0,75" Visibility="Visible">
+            <DataGrid x:Name="LekarzTable" Margin="48,25,48,150" CanUserAddRows="False" MouseDoubleClick="Mouse_Click" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsReadOnly="True"/>
+            <TextBox x:Name="lekarz_imie" HorizontalAlignment="Left" Height="23" Margin="49,261,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+            <TextBox x:Name="lekarz_nazwisko" HorizontalAlignment="Left" Height="23" Margin="216,261,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+            <TextBox x:Name="lekarz_specjalizacja" HorizontalAlignment="Left" Height="23" Margin="383,261,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+            <Label Content="Imie" HorizontalAlignment="Left" Margin="85,230,0,0" VerticalAlignment="Top"/>
+            <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="247,230,0,0" VerticalAlignment="Top"/>
+            <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="409,230,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="next2" Content="DALEJ" HorizontalAlignment="Left" Margin="671,304,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="next2_Click"/>
+            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="48,309,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        </Grid>
+        <Grid x:Name="DataGrid" Margin="0,0,0,75" Visibility="Collapsed">
+            <DataGrid x:Name="DataTable" Margin="48,25,48,150" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsReadOnly="True"/>
+        </Grid>
+        <Grid x:Name="GodzinaGrid" Margin="0,0,0,75" Visibility="Collapsed">
+            <DataGrid x:Name="GodzinaTable" Margin="48,25,48,150" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsReadOnly="True"/>
+        </Grid>
+        <Button Content="ANULUJ" HorizontalAlignment="Left" Margin="671,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+    </Grid>
+</Window>

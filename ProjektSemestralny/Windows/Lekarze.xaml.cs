@@ -1,9 +1,11 @@
 ﻿using ProjektSemestralny.Class;
+using ProjektSemestralny.Windows;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,9 +21,10 @@ namespace ProjektSemestralny
     /// <summary>
     /// Logika interakcji dla klasy Lekarze.xaml
     /// </summary>
-    public partial class Lekarze : Window
+    public partial class Lekarze : Page
     {
         LekarzeClass dbclass = new LekarzeClass();
+        Functions functions = new Functions();
         public Lekarze()
         {
             InitializeComponent();
@@ -39,7 +42,7 @@ namespace ProjektSemestralny
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
- 
+
         }
         private void Mouse_Click(object sender, MouseButtonEventArgs e)
         {
@@ -47,6 +50,7 @@ namespace ProjektSemestralny
             {
                 lekarz_imie.Text = lekarz.Imie;
                 lekarz_nazwisko.Text = lekarz.Nazwisko;
+                lekarz_pesel.IsReadOnly = true;
                 lekarz_pesel.Text = lekarz.Pesel;
                 lekarz_specjalizacja.Text = lekarz.Specjalizacja;
                 lekarz_pracaod.Text = lekarz.Praca_Start.ToString();
@@ -55,7 +59,7 @@ namespace ProjektSemestralny
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            App.ParentWindowRef.ParentFrame.Navigate(new MainPanel());
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -85,6 +89,98 @@ namespace ProjektSemestralny
             lekarz_specjalizacja.Text = "";
             lekarz_pracaod.Text = "";
             lekarz_pracado.Text = "";
+            Load_Table();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (ValidateInputs())
+            {
+                try
+                {
+                    Pracownik pracownik = new Pracownik();
+                    pracownik.Imie = lekarz_imie.Text;
+                    pracownik.Nazwisko = lekarz_nazwisko.Text;
+                    pracownik.Pesel = lekarz_pesel.Text;
+                    pracownik.Specjalizacja = lekarz_specjalizacja.Text;
+                    pracownik.Pracuje_Od = int.Parse(lekarz_pracaod.Text);
+                    pracownik.Pracuje_Do = int.Parse(lekarz_pracado.Text);
+                    pracownik.Stanowisko = "Lekarz";
+                    if (dbclass.AddLekarz(pracownik)) ClearInputs();
+                }
+                catch (Exception ex)
+                {
+                    AlertLabel.Content = ex.Message.ToString();
+                }
+                finally
+                {
+                    Load_Table();
+                }
+            }
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private bool ValidateInputs()
+        {
+            bool state = true;
+            var alerts = new List<string>();
+
+            if(lekarz_imie.Text.Length < 2)
+            {
+                alerts.Add("Imie : Za mało znaków");
+                state = false;
+            }
+
+            if(lekarz_nazwisko.Text.Length < 2)
+            {
+                alerts.Add("Nazwisko : Za mało znaków");
+                state = false;
+            }
+
+            if (lekarz_pesel.Text.Length < 11)
+            {
+                alerts.Add("Pesel : Za mało znaków");
+                state = false;
+            }
+
+            if(lekarz_specjalizacja.Text.Length < 2)
+            {
+                alerts.Add("Specjalizacja : Za mało znaków");
+                state = false;
+            }
+
+            if(lekarz_pracaod.Text.Length < 1)
+            {
+                alerts.Add("Praca od : Za mało znaków");
+                state = false;
+            }
+            if(lekarz_pracado.Text.Length < 1)
+            {
+                alerts.Add("Praca do : Za mało znaków");
+                state = false;
+            }
+            if (!state) functions.AlertBox(alerts);
+            return state;
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            ClearInputs();
+        }
+        private void ClearInputs()
+        {
+            lekarz_imie.Text = "";
+            lekarz_nazwisko.Text = "";
+            lekarz_pesel.Text = "";
+            lekarz_pesel.IsReadOnly = false;
+            lekarz_specjalizacja.Text = "";
+            lekarz_pracaod.Text = "";
+            lekarz_pracado.Text = "";
+            AlertLabel.Content = "";
             Load_Table();
         }
     }

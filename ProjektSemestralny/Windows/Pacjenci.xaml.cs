@@ -1,7 +1,10 @@
 ﻿using ProjektSemestralny.Class;
+using ProjektSemestralny.Windows;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -10,7 +13,7 @@ namespace ProjektSemestralny
     /// <summary>
     /// Logika interakcji dla klasy Pacjenci.xaml
     /// </summary>
-    public partial class Pacjenci : Window
+    public partial class Pacjenci : Page
     {
         PacjenciClass dbclass = new PacjenciClass();
         Functions functions = new Functions();
@@ -50,7 +53,7 @@ namespace ProjektSemestralny
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            App.ParentWindowRef.ParentFrame.Navigate(new MainPanel());
         }
 
         /// <summary>
@@ -93,20 +96,21 @@ namespace ProjektSemestralny
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            Pacjent pacjent = new Pacjent();
-            pacjent.Imie = Input_Imie.Text;
-            pacjent.Nazwisko = Input_Nazwisko.Text;
-            pacjent.Pesel = Input_Pesel.Text;
-            pacjent.Kod_Pocztowy = Input_KodPocztowy.Text;
-            pacjent.Miejscowosc = Input_Miejscowosc.Text;
-            pacjent.Ulica = Input_Ulica.Text;
-            pacjent.Nr_Domu = Input_NrDomu.Text;
-            pacjent.Nr_Lokalu = Input_NrLokalu.Text;
             if (ValidateInputs())
             {
                 try
                 {
-                    dbclass.AddPatient(pacjent);
+                    Pacjent pacjent = new Pacjent();
+                    pacjent.Imie = Input_Imie.Text;
+                    pacjent.Nazwisko = Input_Nazwisko.Text;
+                    pacjent.Pesel = Input_Pesel.Text;
+                    pacjent.Kod_Pocztowy = Input_KodPocztowy.Text;
+                    pacjent.Miejscowosc = Input_Miejscowosc.Text;
+                    pacjent.Ulica = Input_Ulica.Text;
+                    pacjent.Nr_Domu = Input_NrDomu.Text;
+                    pacjent.Nr_Lokalu = Input_NrLokalu.Text;
+                    if(dbclass.AddPatient(pacjent)) ClearInputs();
+
                 }
                 catch (Exception ex)
                 {
@@ -158,14 +162,6 @@ namespace ProjektSemestralny
                 alerts.Add("Pesel : Za mało znaków");
                 state = false;
             }
-            else
-            {
-                if (!int.TryParse(Input_Pesel.Text, out int p))
-                {
-                    alerts.Add("Pesel : Błędne dane");
-                    state = false;
-                }
-            }
 
             if (Input_KodPocztowy.Text.Length < 6)
             {
@@ -185,8 +181,13 @@ namespace ProjektSemestralny
                 state = false;
             }
 
-            functions.AlertBox(alerts);
+            if (!state) functions.AlertBox(alerts);
             return state;
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

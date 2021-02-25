@@ -54,7 +54,7 @@ namespace ProjektSemestralny
             }
             db.SaveChanges();
         }
-        public void AddPatient(Pacjent pacjent)
+        public bool AddPatient(Pacjent pacjent)
         {
             if (PatientExists(pacjent))
             {
@@ -64,6 +64,7 @@ namespace ProjektSemestralny
             {
                 db.Pacjent.Add(pacjent);
                 db.SaveChanges();
+                return true;
             }
         }
         private bool PatientExists(Pacjent pacjent)
@@ -76,6 +77,16 @@ namespace ProjektSemestralny
             {
                 return false;
             }
+        }
+        public int GetId(string pesel)
+        {
+            int id=0;
+            var query = (from el in db.Pacjent where el.Pesel == pesel select el).ToList();
+            foreach(var el in query)
+            {
+                id = el.PacjentID;
+            }
+            return id;
         }
     }
 }
