@@ -1,18 +1,9 @@
 ﻿using ProjektSemestralny.Class;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ProjektSemestralny.Windows
 {
@@ -26,6 +17,9 @@ namespace ProjektSemestralny.Windows
         WizytyClass wizytyClass = new WizytyClass();
         List<Grid> forms = new List<Grid>();
         Wizyta wizyta = new Wizyta();
+        /// <summary>
+        /// Wczytanie Panelu
+        /// </summary>
         public AddWizyta()
         {
             forms.Add(PacjentGrid);
@@ -33,14 +27,12 @@ namespace ProjektSemestralny.Windows
             forms.Add(DataGrid);
             forms.Add(GodzinaGrid);
             InitializeComponent();
-            ShowPacjentGrid();
+            LoadGrid();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            App.ParentWindowRef.ParentFrame.Navigate(new Wizyty());
-        }
-        private void ShowPacjentGrid()
+        /// <summary>
+        /// Wczytanie danych do tabel
+        /// </summary>
+        private void LoadGrid()
         {
             var patients = pacjenciClass.CreateTable();
             List<PacjentView> pacjentViews = new List<PacjentView>();
@@ -59,6 +51,10 @@ namespace ProjektSemestralny.Windows
             }
             this.LekarzTable.ItemsSource = lekarzViews;
         }
+        /// <summary>
+        /// Zmiana widoczności paneli
+        /// </summary>
+        /// <param name="grid"></param>
         private void ChangeVisibility(int grid)
         {
             switch (grid)
@@ -89,6 +85,11 @@ namespace ProjektSemestralny.Windows
                     break;
             }
         }
+        /// <summary>
+        /// Wybór zaznaczonych wartości z tabeli do obiektu wizyta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Mouse_Click(object sender, MouseButtonEventArgs e)
         {
             if (this.PacjentGrid.Visibility == Visibility.Visible)
@@ -102,9 +103,9 @@ namespace ProjektSemestralny.Windows
                     this.next1.IsEnabled = true;
                 }
             }
-            if(this.LekarzTable.Visibility == Visibility.Visible)
+            if (this.LekarzTable.Visibility == Visibility.Visible)
             {
-                foreach(LekarzView lekarz in LekarzTable.SelectedItems)
+                foreach (LekarzView lekarz in LekarzTable.SelectedItems)
                 {
                     lekarz_imie.Text = lekarz.Imie;
                     lekarz_nazwisko.Text = lekarz.Nazwisko;
@@ -113,36 +114,23 @@ namespace ProjektSemestralny.Windows
                     this.next2.IsEnabled = true;
                 }
             }
-            
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            ChangeVisibility(2);
-        }
-
-        private void next2_Click(object sender, RoutedEventArgs e)
-        {
-            ChangeVisibility(3);
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            ChangeVisibility(1);
-        }
-
+        /// <summary>
+        /// Wczytanie wyboru godziny wizyty
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void next3_Click(object sender, RoutedEventArgs e)
         {
             ChangeVisibility(4);
             this.PickedDate.Text = wizyta.Termin.ToShortDateString();
             CheckHours(wizyta);
         }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            ChangeVisibility(2);
-        }
-
+        /// <summary>
+        /// Wczytanie wyboru daty wizyty
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             if (this.DataGrid.Visibility == Visibility.Visible)
@@ -154,32 +142,30 @@ namespace ProjektSemestralny.Windows
                 }
             }
         }
-
-        private void Button_Click_5(object sender, RoutedEventArgs e)
-        {
-            ChangeVisibility(3);
-        }
-
-        private void next5_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Reakcja na zatwierdzenie formularza
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            if( this.AvailableHours.Text != "")
+            if (this.AvailableHours.Text != "")
             {
                 wizyta.Godzina = int.Parse(this.AvailableHours.Text);
                 if (wizytyClass.AddRow(wizyta)) MessageBox.Show("Dodano wizytę");
                 App.ParentWindowRef.ParentFrame.Navigate(new Wizyty());
             }
         }
+        /// <summary>
+        /// Sprawdzenie dostępnych godzin na podstawie daty i lekarza i przypisanie ich do ComboBox-a
+        /// </summary>
+        /// <param name="wizyta"></param>
         private void CheckHours(Wizyta wizyta)
         {
             AvailableHours.Items.Clear();
             Pracownik pracownik = new Pracownik();
             var hours = lekarzeClass.GetHours(wizyta.Pracownik);
-            foreach(var el in hours)
+            foreach (var el in hours)
             {
                 pracownik.Pracuje_Od = el.Pracuje_Od;
                 pracownik.Pracuje_Do = el.Pracuje_Do;
@@ -191,11 +177,35 @@ namespace ProjektSemestralny.Windows
             var sethours = wizytyClass.ListRows(wizyta);
             if (sethours.Count > 0)
             {
-                foreach(var el in sethours)
+                foreach (var el in sethours)
                 {
                     AvailableHours.Items.Remove(el.Godzina);
                 }
             }
         }
+        /// <summary>
+        /// Nawigacja do Wizyty
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e) => App.ParentWindowRef.ParentFrame.Navigate(new Wizyty());
+        /// <summary>
+        /// Przejście do panelu wyboru lekarza
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_1(object sender, RoutedEventArgs e) => ChangeVisibility(2);
+        /// <summary>
+        /// Przejście do panelu wyboru daty
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void next2_Click(object sender, RoutedEventArgs e) => ChangeVisibility(3);
+        /// <summary>
+        /// Przejście do panelu wyboru pacjenta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_2(object sender, RoutedEventArgs e) => ChangeVisibility(1);
     }
 }

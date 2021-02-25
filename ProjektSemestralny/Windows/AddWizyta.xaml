@@ -31,7 +31,7 @@
         </Grid>
         <Grid x:Name="DataGrid" Margin="0,0,0,75" Visibility="Collapsed">
             <DatePicker x:Name="DataPicker" HorizontalAlignment="Left" Margin="337,88,0,0" VerticalAlignment="Top"/>
-            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="48,309,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="48,309,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
             <Button x:Name="next3" Content="DALEJ" HorizontalAlignment="Left" Margin="671,304,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="next3_Click"/>
             <Button Content="ZATWIERDŹ" HorizontalAlignment="Left" Margin="451,90,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
         </Grid>
@@ -41,7 +41,7 @@
             <Label Content="Dostępne godziny:" HorizontalAlignment="Left" Height="27" Margin="242,123,0,0" VerticalAlignment="Top" Width="111"/>
             <ComboBox x:Name="AvailableHours" HorizontalAlignment="Left" Margin="365,123,0,0" VerticalAlignment="Top" Width="120" IsEditable="False" IsReadOnly="True">
             </ComboBox>
-            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="48,309,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
+            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="48,309,0,0" VerticalAlignment="Top" Width="75" Click="next2_Click"/>
             <Button Content="ZATWIERDŹ" HorizontalAlignment="Left" Margin="672,314,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
         </Grid>
         <Button Content="ANULUJ" HorizontalAlignment="Left" Margin="671,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>

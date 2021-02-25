@@ -6,7 +6,6 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace ProjektSemestralny
 {
@@ -17,11 +16,17 @@ namespace ProjektSemestralny
     {
         PacjenciClass dbclass = new PacjenciClass();
         Functions functions = new Functions();
+        /// <summary>
+        /// Wczytanie Panelu
+        /// </summary>
         public Pacjenci()
         {
             InitializeComponent();
             Load_Table();
         }
+        /// <summary>
+        /// Załadowanie danych do tabeli
+        /// </summary>
         public void Load_Table()
         {
             var patients = dbclass.CreateTable();
@@ -32,10 +37,11 @@ namespace ProjektSemestralny
             }
             this.DataTable.ItemsSource = displayItems;
         }
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+        /// <summary>
+        /// Wpisanie danych z zaznaczonego rekordu do TextBox-ów po double clicku
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Mouse_Click(object sender, MouseButtonEventArgs e)
         {
             foreach (PacjentView pacjent in DataTable.SelectedItems)
@@ -51,11 +57,6 @@ namespace ProjektSemestralny
                 Input_NrLokalu.Text = pacjent.Nr_Lokalu.ToString();
             }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            App.ParentWindowRef.ParentFrame.Navigate(new MainPanel());
-        }
-
         /// <summary>
         /// Wywołanie zmiany wartości w tabeli Pacjent
         /// </summary>
@@ -93,7 +94,11 @@ namespace ProjektSemestralny
             }
             ClearInputs();
         }
-
+        /// <summary>
+        /// Dodanie nowego pacjenta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             if (ValidateInputs())
@@ -109,7 +114,7 @@ namespace ProjektSemestralny
                     pacjent.Ulica = Input_Ulica.Text;
                     pacjent.Nr_Domu = Input_NrDomu.Text;
                     pacjent.Nr_Lokalu = Input_NrLokalu.Text;
-                    if(dbclass.AddPatient(pacjent)) ClearInputs();
+                    if (dbclass.AddPatient(pacjent)) ClearInputs();
 
                 }
                 catch (Exception ex)
@@ -122,11 +127,9 @@ namespace ProjektSemestralny
                 }
             }
         }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            ClearInputs();
-        }
+        /// <summary>
+        /// Czyszczenie zawartości TextBox-ów
+        /// </summary>
         private void ClearInputs()
         {
             Input_Imie.Text = "";
@@ -141,6 +144,10 @@ namespace ProjektSemestralny
             AlertLabel.Content = "";
             Load_Table();
         }
+        /// <summary>
+        /// Walidowanie zawartości TextBox-ów
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateInputs()
         {
             bool state = true;
@@ -157,7 +164,7 @@ namespace ProjektSemestralny
                 state = false;
             }
 
-            if(Input_Pesel.Text.Length < 11)
+            if (Input_Pesel.Text.Length < 11)
             {
                 alerts.Add("Pesel : Za mało znaków");
                 state = false;
@@ -180,14 +187,30 @@ namespace ProjektSemestralny
                 alerts.Add("Nr domu : Za mało znaków");
                 state = false;
             }
-
             if (!state) functions.AlertBox(alerts);
             return state;
         }
+        /// <summary>
+        /// Walidacja TextBox-ów pod Int
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+        /// <summary>
+        /// Nawigacja do MainPanel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e) => App.ParentWindowRef.ParentFrame.Navigate(new MainPanel());
+        /// <summary>
+        /// Wywołanie czyszczenia TextBox-ów
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_4(object sender, RoutedEventArgs e) => ClearInputs();
     }
 }

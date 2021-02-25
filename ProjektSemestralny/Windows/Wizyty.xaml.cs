@@ -1,9 +1,6 @@
 ﻿using ProjektSemestralny.Class;
 using ProjektSemestralny.Windows;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,12 +12,18 @@ namespace ProjektSemestralny
     /// </summary>
     public partial class Wizyty : Page
     {
+        /// <summary>
+        /// Wczytanie Panelu
+        /// </summary>
         WizytyClass dbclass = new WizytyClass();
         public Wizyty()
         {
             InitializeComponent();
             LoadTable();
         }
+        /// <summary>
+        /// Pobranie danych do tabeli DataTable
+        /// </summary>
         private void LoadTable()
         {
             var meets = dbclass.CreateTable();
@@ -32,15 +35,11 @@ namespace ProjektSemestralny
             this.DataTable.ItemsSource = displayItems;
             if (DataTable.IsLoaded) ColumnStyle();
         }
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            ColumnStyle();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            App.ParentWindowRef.ParentFrame.Navigate(new MainPanel());
-        }
+        /// <summary>
+        /// Wpisanie danych z zaznaczonego rekordu do TextBox-ów po double click-u
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Mouse_Click(object sender, MouseButtonEventArgs e)
         {
             foreach (WizytaView wizyta in DataTable.SelectedItems)
@@ -55,7 +54,11 @@ namespace ProjektSemestralny
                 wizyta_lekarz_specjalizacja.Text = wizyta.lekarz_specjalizacja;
             }
         }
-
+        /// <summary>
+        /// Usuwanie zaznaczonego rekordu i czyszczenie TextBox-ów
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             foreach (WizytaView wizytaview in DataTable.SelectedItems)
@@ -74,6 +77,9 @@ namespace ProjektSemestralny
             }
             LoadTable();
         }
+        /// <summary>
+        /// Przypisanie niestandardowych nagłówek kolumn
+        /// </summary>
         private void ColumnStyle()
         {
             this.DataTable.Columns[0].Visibility = Visibility.Collapsed;
@@ -86,10 +92,23 @@ namespace ProjektSemestralny
             this.DataTable.Columns[7].Header = "Nazwisko";
             this.DataTable.Columns[8].Header = "Specjalizacja";
         }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            App.ParentWindowRef.ParentFrame.Navigate(new AddWizyta());
-        }
+        /// <summary>
+        /// Wywołanie Stylowania kolumn po wczytaniu okna
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e) => ColumnStyle();
+        /// <summary>
+        /// Nawigacja do MainPanel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e) => App.ParentWindowRef.ParentFrame.Navigate(new MainPanel());
+        /// <summary>
+        /// Nawigacja do AddWizyta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_2(object sender, RoutedEventArgs e) => App.ParentWindowRef.ParentFrame.Navigate(new AddWizyta());
     }
 }

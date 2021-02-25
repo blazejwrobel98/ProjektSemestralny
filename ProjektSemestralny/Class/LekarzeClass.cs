@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjektSemestralny.Class
 {
@@ -90,10 +88,6 @@ namespace ProjektSemestralny.Class
             }
             return id;
         }
-        public List<Pracownik> GetHours(int ID)
-        {
-            var query = (from el in db.Pracownik where el.PracownikID == ID select el).ToList();
-            return query;
-        }
+        public List<Pracownik> GetHours(int ID) => (from el in db.Pracownik where el.PracownikID == ID select el).ToList();
     }
 }

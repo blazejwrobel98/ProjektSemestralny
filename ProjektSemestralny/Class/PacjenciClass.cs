@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjektSemestralny
 {
@@ -16,16 +14,16 @@ namespace ProjektSemestralny
         public List<Pacjent> CreateTable() => db.Pacjent.ToList();
         public void ChangePatientValue(Pacjent pacjent)
         {
-            var OldValQuery= (from el in db.Pacjent where el.Pesel == pacjent.Pesel select el).ToList();
-            foreach(var OldVal in OldValQuery)
+            var OldValQuery = (from el in db.Pacjent where el.Pesel == pacjent.Pesel select el).ToList();
+            foreach (var OldVal in OldValQuery)
             {
-                if(OldVal.Imie != pacjent.Imie) OldVal.Imie = pacjent.Imie;
-                if(OldVal.Nazwisko != pacjent.Nazwisko) OldVal.Nazwisko = pacjent.Nazwisko;
-                if(OldVal.Kod_Pocztowy != pacjent.Kod_Pocztowy) OldVal.Kod_Pocztowy = pacjent.Kod_Pocztowy;
-                if(OldVal.Miejscowosc != pacjent.Miejscowosc) OldVal.Miejscowosc = pacjent.Miejscowosc;
-                if(OldVal.Ulica != pacjent.Ulica) OldVal.Ulica = pacjent.Ulica;
-                if(OldVal.Nr_Domu != pacjent.Nr_Domu) OldVal.Nr_Domu = pacjent.Nr_Domu;
-                if(OldVal.Nr_Lokalu != pacjent.Nr_Lokalu) OldVal.Nr_Lokalu = pacjent.Nr_Lokalu;
+                if (OldVal.Imie != pacjent.Imie) OldVal.Imie = pacjent.Imie;
+                if (OldVal.Nazwisko != pacjent.Nazwisko) OldVal.Nazwisko = pacjent.Nazwisko;
+                if (OldVal.Kod_Pocztowy != pacjent.Kod_Pocztowy) OldVal.Kod_Pocztowy = pacjent.Kod_Pocztowy;
+                if (OldVal.Miejscowosc != pacjent.Miejscowosc) OldVal.Miejscowosc = pacjent.Miejscowosc;
+                if (OldVal.Ulica != pacjent.Ulica) OldVal.Ulica = pacjent.Ulica;
+                if (OldVal.Nr_Domu != pacjent.Nr_Domu) OldVal.Nr_Domu = pacjent.Nr_Domu;
+                if (OldVal.Nr_Lokalu != pacjent.Nr_Lokalu) OldVal.Nr_Lokalu = pacjent.Nr_Lokalu;
             }
             db.SaveChanges();
         }
@@ -36,7 +34,7 @@ namespace ProjektSemestralny
         public void DeletePatient(Pacjent pacjent)
         {
             var Query = (from el in db.Pacjent where el.Pesel == pacjent.Pesel select el).ToList();
-            foreach(var row in Query)
+            foreach (var row in Query)
             {
                 var QueryForeign = (from el in db.Wizyta where el.Pacjent == row.PacjentID select el).ToList();
                 foreach (var foreign in QueryForeign)
@@ -80,9 +78,9 @@ namespace ProjektSemestralny
         }
         public int GetId(string pesel)
         {
-            int id=0;
+            int id = 0;
             var query = (from el in db.Pacjent where el.Pesel == pesel select el).ToList();
-            foreach(var el in query)
+            foreach (var el in query)
             {
                 id = el.PacjentID;
             }

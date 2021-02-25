@@ -1,19 +1,10 @@
 ﻿using ProjektSemestralny.Class;
 using ProjektSemestralny.Windows;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ProjektSemestralny
 {
@@ -23,6 +14,9 @@ namespace ProjektSemestralny
     public partial class Pracownicy : Page
     {
         PracownicyClass dbclass = new PracownicyClass();
+        /// <summary>
+        /// Załadowanie Panelu
+        /// </summary>
         public Pracownicy()
         {
             InitializeComponent();
@@ -49,15 +43,6 @@ namespace ProjektSemestralny
         {
             this.DataTable.Columns[4].Header = "Praca OD";
             this.DataTable.Columns[5].Header = "Praca DO";
-        }
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            Table_Style();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            App.ParentWindowRef.ParentFrame.Navigate(new MainPanel());
         }
         /// <summary>
         /// Wpisanie wartości z klikniętego podwójnie wiersza w do TexBoxów umożliwiających edycję
@@ -114,11 +99,9 @@ namespace ProjektSemestralny
             pracownik_pracado.Text = "";
             Load_Table();
         }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            ClearInputs();
-        }
+        /// <summary>
+        /// Czyszczenie zawartości TextBox-ów
+        /// </summary>
         private void ClearInputs()
         {
             pracownik_imie.Text = "";
@@ -131,10 +114,33 @@ namespace ProjektSemestralny
             AlertLabel.Content = "";
             Load_Table();
         }
+        /// <summary>
+        /// Walidacja TextBox pod Int
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+        /// <summary>
+        /// Wywołanie stylowania po wczytaniu panelu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e) => Table_Style();
+        /// <summary>
+        /// Nawigacja do MainPanel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e) => App.ParentWindowRef.ParentFrame.Navigate(new MainPanel());
+        /// <summary>
+        /// Wywołanie czyszczenia TextBox-ów
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_3(object sender, RoutedEventArgs e) => ClearInputs();
     }
 }
