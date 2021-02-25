@@ -8,7 +8,7 @@
         Title="Lekarze" Height="450" Width="800">
     <Grid>
         <Button Content="POWRÓT" HorizontalAlignment="Left" Margin="672,382,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click" Height="24"/>
-        <DataGrid x:Name="DataTable" Margin="48,25,48,200" CanUserAddRows="False" IsReadOnly="True" CanUserResizeRows="False" MouseDoubleClick="Mouse_Click" CanUserReorderColumns="False" CanUserResizeColumns="False" ColumnWidth="85" Loaded="MainWindow_Loaded"/>
+        <DataGrid x:Name="DataTable" Margin="48,25,48,200" CanUserAddRows="False" IsReadOnly="True" CanUserResizeRows="False" MouseDoubleClick="Mouse_Click" CanUserReorderColumns="False" CanUserResizeColumns="False" ColumnWidth="85"/>
         <TextBox x:Name="lekarz_imie" HorizontalAlignment="Left" Height="23" Margin="51,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20"/>
         <TextBox x:Name="lekarz_nazwisko" HorizontalAlignment="Left" Height="23" Margin="218,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40"/>
         <TextBox x:Name="lekarz_pesel" HorizontalAlignment="Left" Height="23" Margin="385,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="False" MaxLength="11" PreviewTextInput="NumberValidationTextBox"/>
