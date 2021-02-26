@@ -6,9 +6,12 @@
         xmlns:local="clr-namespace:ProjektSemestralny"
         mc:Ignorable="d"
         Title="PRZYCHODNIA.exe" Height="500" Width="850" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="./images/camilo-jimenez-vGu08RYjO-s-unsplash.jpg" Stretch="UniformToFill" Opacity="0.5"/>
+    </Window.Background>
     <Grid>
         <DockPanel>
-            <Frame Name="ParentFrame" Height="450" Width="800" NavigationUIVisibility="Hidden"/>
+            <Frame Name="ParentFrame" Height="450" Width="800" NavigationUIVisibility="Hidden" Background="#A5000000"/>
         </DockPanel>
     </Grid>
 </Window>

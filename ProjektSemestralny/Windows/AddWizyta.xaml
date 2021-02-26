@@ -13,9 +13,9 @@
             <TextBox x:Name="Input_Imie" HorizontalAlignment="Left" Height="23" Margin="48,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
             <TextBox x:Name="Input_Nazwisko" HorizontalAlignment="Left" Height="23" Margin="195,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
             <TextBox x:Name="Input_Pesel" HorizontalAlignment="Left" Height="23" Margin="345,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-            <Label Content="Imie" HorizontalAlignment="Left" Margin="90,232,0,0" VerticalAlignment="Top"/>
-            <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="223,232,0,0" VerticalAlignment="Top"/>
-            <Label Content="Pesel" HorizontalAlignment="Left" Margin="385,232,0,0" VerticalAlignment="Top"/>
+            <Label Content="Imie" HorizontalAlignment="Left" Margin="90,232,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="223,232,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Pesel" HorizontalAlignment="Left" Margin="385,232,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Button x:Name="next1" Content="DALEJ" HorizontalAlignment="Right" Margin="0,0,50,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_1" IsEnabled="False"/>
         </Grid>
         <Grid x:Name="LekarzGrid" Margin="0,0,0,75" Visibility="Collapsed">

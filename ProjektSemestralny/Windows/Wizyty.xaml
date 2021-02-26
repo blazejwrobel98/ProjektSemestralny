@@ -23,16 +23,16 @@
         <TextBox x:Name="wizyta_lekarz_specjalizacja" HorizontalAlignment="Left" Height="23" Margin="379,400,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <Button Content="USUŃ" HorizontalAlignment="Right" Margin="0,0,174,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_1"/>
         <Button Content="DODAJ" HorizontalAlignment="Right" Margin="0,0,174,60" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_2"/>
-        <Label Content="Wizyta" HorizontalAlignment="Left" Margin="8,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.37,1.615"/>
-        <Label Content="Data" HorizontalAlignment="Left" Margin="101,270,0,0" VerticalAlignment="Top"/>
-        <Label Content="Godzina" HorizontalAlignment="Left" Margin="252,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-0.385"/>
-        <Label Content="Pacjent" HorizontalAlignment="Left" Margin="8,323,0,0" VerticalAlignment="Top"/>
-        <Label Content="Imie" HorizontalAlignment="Left" Margin="104,323,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="253,323,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pesel" HorizontalAlignment="Left" Margin="423,323,0,0" VerticalAlignment="Top"/>
-        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="8,377,0,0" VerticalAlignment="Top"/>
-        <Label Content="Imie" HorizontalAlignment="Left" Margin="103,377,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="246,377,0,0" VerticalAlignment="Top"/>
-        <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="402,377,0,0" VerticalAlignment="Top"/>
+        <Label Content="Wizyta" HorizontalAlignment="Left" Margin="8,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.37,1.615" Foreground="White"/>
+        <Label Content="Data" HorizontalAlignment="Left" Margin="101,270,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Godzina" HorizontalAlignment="Left" Margin="252,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-0.385" Foreground="White"/>
+        <Label Content="Pacjent" HorizontalAlignment="Left" Margin="8,323,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="104,323,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="253,323,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="423,323,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="8,377,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="103,377,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="246,377,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="402,377,0,0" VerticalAlignment="Top" Foreground="White"/>
     </Grid>
 </Page>

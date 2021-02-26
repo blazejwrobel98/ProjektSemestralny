@@ -18,12 +18,12 @@
         <Button Content="ZMIEŃ" HorizontalAlignment="Right" Margin="0,0,648,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_1"/>
         <Button Content="USUŃ" HorizontalAlignment="Right" Margin="0,0,483,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_2"/>
         <Button Content="DODAJ" HorizontalAlignment="Right" Margin="0,0,314,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_3"/>
-        <Label Content="Imie" HorizontalAlignment="Left" Margin="95,251,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="247,251,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pesel" HorizontalAlignment="Left" Margin="428,251,0,0" VerticalAlignment="Top"/>
-        <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="76,310,0,0" VerticalAlignment="Top"/>
-        <Label Content="Praca od" HorizontalAlignment="Left" Margin="249,310,0,0" VerticalAlignment="Top"/>
-        <Label Content="Praca do" HorizontalAlignment="Left" Margin="418,309,0,0" VerticalAlignment="Top"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="95,251,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="247,251,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="428,251,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="76,310,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Praca od" HorizontalAlignment="Left" Margin="249,310,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Praca do" HorizontalAlignment="Left" Margin="418,309,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="AlertLabel" HorizontalAlignment="Left" Margin="548,278,0,0" VerticalAlignment="Top" Height="81" Width="200"/>
         <Button Content="WYCZYŚĆ" Margin="0,0,172,25" Click="Button_Click_4" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
     </Grid>

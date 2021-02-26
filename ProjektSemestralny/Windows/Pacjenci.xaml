@@ -18,14 +18,14 @@
         <TextBox x:Name="Input_Ulica" HorizontalAlignment="Left" Height="23" Margin="351,328,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="PostCodeValidationTextBox"/>
         <TextBox x:Name="Input_NrDomu" HorizontalAlignment="Left" Height="23" Margin="51,380,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="4"/>
         <TextBox x:Name="Input_NrLokalu" HorizontalAlignment="Left" Height="23" Margin="201,380,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="3"/>
-        <Label Content="Imie" HorizontalAlignment="Left" Margin="96,253,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="229,253,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pesel" HorizontalAlignment="Left" Margin="391,253,0,0" VerticalAlignment="Top"/>
-        <Label Content="Kod Pocztowy" HorizontalAlignment="Left" Margin="71,302,0,0" VerticalAlignment="Top"/>
-        <Label Content="Miejscowosc" HorizontalAlignment="Left" Margin="229,302,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ulica" HorizontalAlignment="Left" Margin="390,302,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nr Domu" HorizontalAlignment="Left" Margin="80,354,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nr Lokalu" HorizontalAlignment="Left" Margin="230,354,0,0" VerticalAlignment="Top"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="96,253,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="229,253,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="391,253,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Kod Pocztowy" HorizontalAlignment="Left" Margin="71,302,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Miejscowosc" HorizontalAlignment="Left" Margin="229,302,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Ulica" HorizontalAlignment="Left" Margin="390,302,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Nr Domu" HorizontalAlignment="Left" Margin="80,354,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Nr Lokalu" HorizontalAlignment="Left" Margin="230,354,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button Content="ZMIEŃ" HorizontalAlignment="Left" Margin="573,0,0,55" Width="80" Click="Button_Click_1" Height="25" VerticalAlignment="Bottom"/>
         <Button Content="USUŃ" Margin="0,0,232,55" Click="Button_Click_2" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
         <Button Content="DODAJ" HorizontalAlignment="Left" Margin="573,0,0,25" Width="80" Click="Button_Click_3" Height="25" VerticalAlignment="Bottom"/>
