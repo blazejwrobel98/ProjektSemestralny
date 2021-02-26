@@ -9,10 +9,10 @@
     <Grid>
         <Button Content="POWRÓT" HorizontalAlignment="Left" Margin="674,395,0,0" VerticalAlignment="Top" Width="78" Click="Button_Click" Height="24" />
         <DataGrid x:Name="DataTable" Margin="48,25,48,200" CanUserAddRows="False" IsReadOnly="True" CanUserResizeRows="False" MouseDoubleClick="Mouse_Click" CanUserReorderColumns="False" CanUserResizeColumns="False" ColumnWidth="85"/>
-        <TextBox x:Name="pracownik_imie" HorizontalAlignment="Left" Height="23" Margin="49,275,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20"/>
-        <TextBox x:Name="pracownik_nazwisko" HorizontalAlignment="Left" Height="23" Margin="216,275,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40"/>
+        <TextBox x:Name="pracownik_imie" HorizontalAlignment="Left" Height="23" Margin="49,275,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20" PreviewTextInput="PostCodeValidationTextBox"/>
+        <TextBox x:Name="pracownik_nazwisko" HorizontalAlignment="Left" Height="23" Margin="216,275,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="PostCodeValidationTextBox"/>
         <TextBox x:Name="pracownik_pesel" HorizontalAlignment="Left" Height="23" Margin="383,275,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" MaxLength="11" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="pracownik_stanowisko" HorizontalAlignment="Left" Height="23" Margin="49,332,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="30" />
+        <TextBox x:Name="pracownik_stanowisko" HorizontalAlignment="Left" Height="23" Margin="49,332,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="30" PreviewTextInput="PostCodeValidationTextBox"/>
         <TextBox x:Name="pracownik_pracaod" HorizontalAlignment="Left" Height="23" Margin="216,332,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="pracownik_pracado" HorizontalAlignment="Left" Height="23" Margin="383,332,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
         <Button Content="ZATWIERDŹ" HorizontalAlignment="Left" Margin="68,395,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_1"/>

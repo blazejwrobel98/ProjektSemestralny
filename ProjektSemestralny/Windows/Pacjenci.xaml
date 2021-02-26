@@ -10,12 +10,12 @@
     <Grid>
         <Button Content="POWRÓT" HorizontalAlignment="Left" Margin="677,383,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <DataGrid x:Name="DataTable" Margin="48,25,48,200" MouseDoubleClick="Mouse_Click" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsReadOnly="True"/>
-        <TextBox x:Name="Input_Imie" HorizontalAlignment="Left" Height="23" Margin="54,279,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20"/>
-        <TextBox x:Name="Input_Nazwisko" HorizontalAlignment="Left" Height="23" Margin="201,279,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40"/>
+        <TextBox x:Name="Input_Imie" HorizontalAlignment="Left" Height="23" Margin="54,279,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20" PreviewTextInput="TextValidationTextBox"/>
+        <TextBox x:Name="Input_Nazwisko" HorizontalAlignment="Left" Height="23" Margin="201,279,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="TextValidationTextBox"/>
         <TextBox x:Name="Input_Pesel" HorizontalAlignment="Left" Height="23" Margin="351,279,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="11" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="Input_KodPocztowy" HorizontalAlignment="Left" Height="23" Margin="54,328,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="6"/>
-        <TextBox x:Name="Input_Miejscowosc" HorizontalAlignment="Left" Height="23" Margin="201,328,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40"/>
-        <TextBox x:Name="Input_Ulica" HorizontalAlignment="Left" Height="23" Margin="351,328,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40"/>
+        <TextBox x:Name="Input_KodPocztowy" HorizontalAlignment="Left" Height="23" Margin="54,328,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="6" PreviewTextInput="PostCodeValidationTextBox"/>
+        <TextBox x:Name="Input_Miejscowosc" HorizontalAlignment="Left" Height="23" Margin="201,328,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="PostCodeValidationTextBox"/>
+        <TextBox x:Name="Input_Ulica" HorizontalAlignment="Left" Height="23" Margin="351,328,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="PostCodeValidationTextBox"/>
         <TextBox x:Name="Input_NrDomu" HorizontalAlignment="Left" Height="23" Margin="51,380,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="4"/>
         <TextBox x:Name="Input_NrLokalu" HorizontalAlignment="Left" Height="23" Margin="201,380,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="3"/>
         <Label Content="Imie" HorizontalAlignment="Left" Margin="96,253,0,0" VerticalAlignment="Top"/>

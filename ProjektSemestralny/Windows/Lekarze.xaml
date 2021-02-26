@@ -9,10 +9,10 @@
     <Grid>
         <Button Content="POWRÓT" HorizontalAlignment="Left" Margin="672,382,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click" Height="24"/>
         <DataGrid x:Name="DataTable" Margin="48,25,48,200" CanUserAddRows="False" IsReadOnly="True" CanUserResizeRows="False" MouseDoubleClick="Mouse_Click" CanUserReorderColumns="False" CanUserResizeColumns="False" ColumnWidth="85"/>
-        <TextBox x:Name="lekarz_imie" HorizontalAlignment="Left" Height="23" Margin="51,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20"/>
-        <TextBox x:Name="lekarz_nazwisko" HorizontalAlignment="Left" Height="23" Margin="218,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40"/>
+        <TextBox x:Name="lekarz_imie" HorizontalAlignment="Left" Height="23" Margin="51,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20" PreviewTextInput="PostCodeValidationTextBox"/>
+        <TextBox x:Name="lekarz_nazwisko" HorizontalAlignment="Left" Height="23" Margin="218,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="PostCodeValidationTextBox"/>
         <TextBox x:Name="lekarz_pesel" HorizontalAlignment="Left" Height="23" Margin="385,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="False" MaxLength="11" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="lekarz_specjalizacja" HorizontalAlignment="Left" Height="23" Margin="51,336,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="30"/>
+        <TextBox x:Name="lekarz_specjalizacja" HorizontalAlignment="Left" Height="23" Margin="51,336,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="30" PreviewTextInput="PostCodeValidationTextBox"/>
         <TextBox x:Name="lekarz_pracaod" HorizontalAlignment="Left" Height="23" Margin="218,336,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="lekarz_pracado" HorizontalAlignment="Left" Height="23" Margin="385,336,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
         <Button Content="ZMIEŃ" HorizontalAlignment="Left" Margin="70,382,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_1"/>
