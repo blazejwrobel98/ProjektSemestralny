@@ -11,7 +11,7 @@
         <DataGrid x:Name="DataTable" Margin="48,25,48,200" CanUserAddRows="False" IsReadOnly="True" CanUserResizeRows="False" MouseDoubleClick="Mouse_Click" CanUserReorderColumns="False" CanUserResizeColumns="False" ColumnWidth="85"/>
         <TextBox x:Name="pracownik_imie" HorizontalAlignment="Left" Height="23" Margin="49,277,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20" PreviewTextInput="TextValidationTextBox"/>
         <TextBox x:Name="pracownik_nazwisko" HorizontalAlignment="Left" Height="23" Margin="216,277,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="TextValidationTextBox"/>
-        <TextBox x:Name="pracownik_pesel" HorizontalAlignment="Left" Height="23" Margin="383,277,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" MaxLength="11" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="pracownik_pesel" HorizontalAlignment="Left" Height="23" Margin="383,277,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="11" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="pracownik_stanowisko" HorizontalAlignment="Left" Height="23" Margin="49,334,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="30" />
         <TextBox x:Name="pracownik_pracaod" HorizontalAlignment="Left" Height="23" Margin="216,334,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="pracownik_pracado" HorizontalAlignment="Left" Height="23" Margin="383,334,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>

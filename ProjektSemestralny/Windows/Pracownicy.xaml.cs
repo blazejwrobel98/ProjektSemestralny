@@ -58,6 +58,7 @@ namespace ProjektSemestralny
                 pracownik_imie.Text = pracownik.Imie;
                 pracownik_nazwisko.Text = pracownik.Nazwisko;
                 pracownik_pesel.Text = pracownik.Pesel;
+                pracownik_pesel.IsReadOnly = true;
                 pracownik_stanowisko.Text = pracownik.Stanowisko;
                 pracownik_pracaod.Text = pracownik.Praca_Start.ToString();
                 pracownik_pracado.Text = pracownik.Praca_Stop.ToString();
