@@ -10,12 +10,12 @@
         <DockPanel>
             <Frame Name="ParentFrame"/>
         </DockPanel>
-        <Label Content="PRZYCHODNIA" VerticalAlignment="Top" FontSize="36" FontFamily="Calibri" FontWeight="Bold" Margin="293,54,209,0"/>
-        <Button Content="Pacjenci" HorizontalAlignment="Left" Margin="220,180,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="25"/>
-        <Button Content="Wizyty" HorizontalAlignment="Left" Margin="220,263,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Height="25"/>
-        <Button Content="Pracownicy" Margin="534,263,0,0" VerticalAlignment="Top" Click="Button_Click_3" HorizontalAlignment="Left" Width="75" Height="25"/>
-        <Button Content="Lekarze" HorizontalAlignment="Left" Margin="534,180,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" Height="25"/>
-        <Button Content="Zakończ" Margin="674,365,0,0" Click="Button_Click_4" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
+        <Label Content="PRZYCHODNIA" VerticalAlignment="Top" FontSize="36" FontFamily="Calibri" FontWeight="Bold" Margin="300,70,0,0" HorizontalAlignment="Left" Width="234"/>
+        <Button Content="Pacjenci" HorizontalAlignment="Left" Margin="220,180,0,0" VerticalAlignment="Top"  Click="Button_Click" Width="80" Height="25"/>
+        <Button Content="Wizyty" HorizontalAlignment="Left" Margin="220,263,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="80" Height="25"/>
+        <Button Content="Pracownicy" Margin="534,263,0,0" VerticalAlignment="Top" Click="Button_Click_3" HorizontalAlignment="Left" Width="80" Height="25"/>
+        <Button Content="Lekarze" HorizontalAlignment="Left" Margin="534,180,0,0" VerticalAlignment="Top" Click="Button_Click_2" Width="80" Height="25"/>
+        <Button Content="Zakończ" Margin="0,0,50,25" Click="Button_Click_4" HorizontalAlignment="Right" Width="80" Height="25" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Page>

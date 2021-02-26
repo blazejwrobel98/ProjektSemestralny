@@ -7,25 +7,25 @@
         mc:Ignorable="d"
         Title="Pracownicy" Height="450" Width="800" Loaded="MainWindow_Loaded">
     <Grid>
-        <Button Content="POWRÓT" HorizontalAlignment="Left" Margin="674,395,0,0" VerticalAlignment="Top" Width="78" Click="Button_Click" Height="24" />
+        <Button Content="POWRÓT" Margin="0,0,50,25" Click="Button_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Width="80" Height="25"/>
         <DataGrid x:Name="DataTable" Margin="48,25,48,200" CanUserAddRows="False" IsReadOnly="True" CanUserResizeRows="False" MouseDoubleClick="Mouse_Click" CanUserReorderColumns="False" CanUserResizeColumns="False" ColumnWidth="85"/>
-        <TextBox x:Name="pracownik_imie" HorizontalAlignment="Left" Height="23" Margin="49,275,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20" PreviewTextInput="PostCodeValidationTextBox"/>
-        <TextBox x:Name="pracownik_nazwisko" HorizontalAlignment="Left" Height="23" Margin="216,275,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="PostCodeValidationTextBox"/>
-        <TextBox x:Name="pracownik_pesel" HorizontalAlignment="Left" Height="23" Margin="383,275,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" MaxLength="11" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="pracownik_stanowisko" HorizontalAlignment="Left" Height="23" Margin="49,332,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="30" PreviewTextInput="PostCodeValidationTextBox"/>
-        <TextBox x:Name="pracownik_pracaod" HorizontalAlignment="Left" Height="23" Margin="216,332,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="pracownik_pracado" HorizontalAlignment="Left" Height="23" Margin="383,332,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
-        <Button Content="ZATWIERDŹ" HorizontalAlignment="Left" Margin="68,395,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_1"/>
-        <Button Content="USUŃ" HorizontalAlignment="Left" Margin="235,395,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_2"/>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="404,395,0,0" VerticalAlignment="Top" Width="81" Height="24" Click="Button_Click_4"/>
-        <Label Content="Imie" HorizontalAlignment="Left" Margin="84,249,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="240,249,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pesel" HorizontalAlignment="Left" Margin="426,249,0,0" VerticalAlignment="Top"/>
-        <Label Content="Stanowisko" HorizontalAlignment="Left" Margin="68,306,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pracuje OD" HorizontalAlignment="Left" Margin="235,306,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pracuje DO" HorizontalAlignment="Left" Margin="404,306,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="AlertLabel" HorizontalAlignment="Left" Margin="546,291,0,0" VerticalAlignment="Top" Height="81" Width="200"/>
-        <Button Content="WYCZYŚĆ" HorizontalAlignment="Left" Margin="546,395,0,0" VerticalAlignment="Top" Width="84" Height="24" Click="Button_Click_3"/>
+        <TextBox x:Name="pracownik_imie" HorizontalAlignment="Left" Height="23" Margin="49,277,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20" PreviewTextInput="TextValidationTextBox"/>
+        <TextBox x:Name="pracownik_nazwisko" HorizontalAlignment="Left" Height="23" Margin="216,277,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="TextValidationTextBox"/>
+        <TextBox x:Name="pracownik_pesel" HorizontalAlignment="Left" Height="23" Margin="383,277,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" MaxLength="11" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="pracownik_stanowisko" HorizontalAlignment="Left" Height="23" Margin="49,334,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="30" />
+        <TextBox x:Name="pracownik_pracaod" HorizontalAlignment="Left" Height="23" Margin="216,334,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
+        <TextBox x:Name="pracownik_pracado" HorizontalAlignment="Left" Height="23" Margin="383,334,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
+        <Button Content="ZATWIERDŹ" Margin="0,0,650,25" VerticalAlignment="Bottom"  Click="Button_Click_1" HorizontalAlignment="Right" Width="80" Height="25"/>
+        <Button Content="USUŃ" Margin="0,0,485,25" Click="Button_Click_2" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
+        <Button Content="DODAJ" Margin="0,0,316,25" Click="Button_Click_4" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="84,251,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="240,251,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="426,251,0,0" VerticalAlignment="Top"/>
+        <Label Content="Stanowisko" HorizontalAlignment="Left" Margin="68,308,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pracuje OD" HorizontalAlignment="Left" Margin="235,308,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pracuje DO" HorizontalAlignment="Left" Margin="404,308,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="AlertLabel" HorizontalAlignment="Left" Margin="546,291,0,0" VerticalAlignment="Top" Height="80" Width="200"/>
+        <Button Content="WYCZYŚĆ" Margin="0,0,174,25" Click="Button_Click_3" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
 
     </Grid>
 </Page>

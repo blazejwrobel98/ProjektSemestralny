@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="AddWizyta" Height="450" Width="800">
     <Grid>
-        <Grid x:Name="PacjentGrid" Margin="0,0,0,75" Visibility="Collapsed">
+        <Grid x:Name="PacjentGrid" Margin="0,0,0,75" Visibility="Visible">
             <DataGrid x:Name="PacjentTable" Margin="48,25,48,150" MouseDoubleClick="Mouse_Click" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsReadOnly="True"/>
             <TextBox x:Name="Input_Imie" HorizontalAlignment="Left" Height="23" Margin="48,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
             <TextBox x:Name="Input_Nazwisko" HorizontalAlignment="Left" Height="23" Margin="195,258,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
@@ -16,7 +16,7 @@
             <Label Content="Imie" HorizontalAlignment="Left" Margin="90,232,0,0" VerticalAlignment="Top"/>
             <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="223,232,0,0" VerticalAlignment="Top"/>
             <Label Content="Pesel" HorizontalAlignment="Left" Margin="385,232,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="next1" Content="DALEJ" HorizontalAlignment="Left" Margin="671,304,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" IsEnabled="False"/>
+            <Button x:Name="next1" Content="DALEJ" HorizontalAlignment="Right" Margin="0,0,50,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_1" IsEnabled="False"/>
         </Grid>
         <Grid x:Name="LekarzGrid" Margin="0,0,0,75" Visibility="Collapsed">
             <DataGrid x:Name="LekarzTable" Margin="48,25,48,150" CanUserAddRows="False" MouseDoubleClick="Mouse_Click" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" IsReadOnly="True"/>
@@ -26,24 +26,24 @@
             <Label Content="Imie" HorizontalAlignment="Left" Margin="85,230,0,0" VerticalAlignment="Top"/>
             <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="247,230,0,0" VerticalAlignment="Top"/>
             <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="409,230,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="next2" Content="DALEJ" HorizontalAlignment="Left" Margin="671,304,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="next2_Click"/>
-            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="48,309,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+            <Button x:Name="next2" Content="DALEJ" HorizontalAlignment="Right" Margin="0,0,50,25" VerticalAlignment="Bottom" Width="80" Height="25" IsEnabled="False" Click="next2_Click"/>
+            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="50,0,0,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_2"/>
         </Grid>
         <Grid x:Name="DataGrid" Margin="0,0,0,75" Visibility="Collapsed">
-            <DatePicker x:Name="DataPicker" HorizontalAlignment="Left" Margin="337,88,0,0" VerticalAlignment="Top"/>
-            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="48,309,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-            <Button x:Name="next3" Content="DALEJ" HorizontalAlignment="Left" Margin="671,304,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="next3_Click"/>
-            <Button Content="ZATWIERDŹ" HorizontalAlignment="Left" Margin="451,90,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+            <DatePicker x:Name="DataPicker" Margin="340,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"/>
+            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="50,0,0,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_1"/>
+            <Button x:Name="next3" Content="DALEJ" HorizontalAlignment="Right" Margin="0,0,50,25" VerticalAlignment="Bottom" Width="80" Height="25" IsEnabled="False" Click="next3_Click"/>
+            <Button Content="ZATWIERDŹ" Margin="360,134,0,0" VerticalAlignment="Top" Height="25" Click="Button_Click_4" HorizontalAlignment="Left" Width="80"/>
         </Grid>
-        <Grid x:Name="GodzinaGrid" Margin="0,0,0,75" Visibility="Visible">
+        <Grid x:Name="GodzinaGrid" Margin="0,0,0,75" Visibility="Collapsed">
             <Label Content="Wybrana data:" HorizontalAlignment="Left" Margin="267,79,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="PickedDate" HorizontalAlignment="Left" Height="23" Margin="365,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
             <Label Content="Dostępne godziny:" HorizontalAlignment="Left" Height="27" Margin="242,123,0,0" VerticalAlignment="Top" Width="111"/>
             <ComboBox x:Name="AvailableHours" HorizontalAlignment="Left" Margin="365,123,0,0" VerticalAlignment="Top" Width="120" IsEditable="False" IsReadOnly="True">
             </ComboBox>
-            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="48,309,0,0" VerticalAlignment="Top" Width="75" Click="next2_Click"/>
-            <Button Content="ZATWIERDŹ" HorizontalAlignment="Left" Margin="672,314,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
+            <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="25,0,0,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="next2_Click"/>
+            <Button Content="ZATWIERDŹ" HorizontalAlignment="Right" Margin="0,0,50,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_6"/>
         </Grid>
-        <Button Content="ANULUJ" HorizontalAlignment="Left" Margin="671,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="ANULUJ" HorizontalAlignment="Right" Margin="0,0,50,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click"/>
     </Grid>
 </Page>

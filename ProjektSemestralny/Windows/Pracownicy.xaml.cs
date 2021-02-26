@@ -124,6 +124,16 @@ namespace ProjektSemestralny
             e.Handled = regex.IsMatch(e.Text);
         }
         /// <summary>
+        /// Walidacja TextBox-ów pod tekst
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        /// <summary>
         /// Walidacja danych w TextBox-ach
         /// </summary>
         /// <returns></returns>

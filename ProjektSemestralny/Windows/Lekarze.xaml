@@ -7,24 +7,24 @@
         mc:Ignorable="d"
         Title="Lekarze" Height="450" Width="800">
     <Grid>
-        <Button Content="POWRÓT" HorizontalAlignment="Left" Margin="672,382,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click" Height="24"/>
+        <Button Content="POWRÓT" Margin="0,0,50,25" Click="Button_Click" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
         <DataGrid x:Name="DataTable" Margin="48,25,48,200" CanUserAddRows="False" IsReadOnly="True" CanUserResizeRows="False" MouseDoubleClick="Mouse_Click" CanUserReorderColumns="False" CanUserResizeColumns="False" ColumnWidth="85"/>
-        <TextBox x:Name="lekarz_imie" HorizontalAlignment="Left" Height="23" Margin="51,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20" PreviewTextInput="PostCodeValidationTextBox"/>
-        <TextBox x:Name="lekarz_nazwisko" HorizontalAlignment="Left" Height="23" Margin="218,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="PostCodeValidationTextBox"/>
+        <TextBox x:Name="lekarz_imie" HorizontalAlignment="Left" Height="23" Margin="51,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="20" PreviewTextInput="TextValidationTextBox"/>
+        <TextBox x:Name="lekarz_nazwisko" HorizontalAlignment="Left" Height="23" Margin="218,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="40" PreviewTextInput="TextValidationTextBox"/>
         <TextBox x:Name="lekarz_pesel" HorizontalAlignment="Left" Height="23" Margin="385,278,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" IsReadOnly="False" MaxLength="11" PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox x:Name="lekarz_specjalizacja" HorizontalAlignment="Left" Height="23" Margin="51,336,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="30" PreviewTextInput="PostCodeValidationTextBox"/>
+        <TextBox x:Name="lekarz_specjalizacja" HorizontalAlignment="Left" Height="23" Margin="51,336,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="30" PreviewTextInput="TextValidationTextBox"/>
         <TextBox x:Name="lekarz_pracaod" HorizontalAlignment="Left" Height="23" Margin="218,336,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox x:Name="lekarz_pracado" HorizontalAlignment="Left" Height="23" Margin="385,336,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" MaxLength="2" PreviewTextInput="NumberValidationTextBox"/>
-        <Button Content="ZMIEŃ" HorizontalAlignment="Left" Margin="70,382,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_1"/>
-        <Button Content="USUŃ" HorizontalAlignment="Left" Margin="237,382,0,0" VerticalAlignment="Top" Width="82" Height="24" Click="Button_Click_2"/>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="406,382,0,0" VerticalAlignment="Top" Width="81" Height="24" Click="Button_Click_3"/>
-        <Label Content="Imie" HorizontalAlignment="Left" Margin="99,252,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="261,252,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pesel" HorizontalAlignment="Left" Margin="437,252,0,0" VerticalAlignment="Top"/>
+        <Button Content="ZMIEŃ" HorizontalAlignment="Right" Margin="0,0,648,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_1"/>
+        <Button Content="USUŃ" HorizontalAlignment="Right" Margin="0,0,483,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_2"/>
+        <Button Content="DODAJ" HorizontalAlignment="Right" Margin="0,0,314,25" VerticalAlignment="Bottom" Width="80" Height="25" Click="Button_Click_3"/>
+        <Label Content="Imie" HorizontalAlignment="Left" Margin="95,251,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="247,251,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pesel" HorizontalAlignment="Left" Margin="428,251,0,0" VerticalAlignment="Top"/>
         <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="76,310,0,0" VerticalAlignment="Top"/>
         <Label Content="Praca od" HorizontalAlignment="Left" Margin="249,310,0,0" VerticalAlignment="Top"/>
         <Label Content="Praca do" HorizontalAlignment="Left" Margin="418,309,0,0" VerticalAlignment="Top"/>
         <Label x:Name="AlertLabel" HorizontalAlignment="Left" Margin="548,278,0,0" VerticalAlignment="Top" Height="81" Width="200"/>
-        <Button Content="WYCZYŚĆ" HorizontalAlignment="Left" Margin="548,382,0,0" VerticalAlignment="Top" Width="84" Height="24" Click="Button_Click_4"/>
+        <Button Content="WYCZYŚĆ" Margin="0,0,172,25" Click="Button_Click_4" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
     </Grid>
 </Page>
