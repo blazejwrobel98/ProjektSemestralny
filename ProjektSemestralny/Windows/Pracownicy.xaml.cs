@@ -161,25 +161,31 @@ namespace ProjektSemestralny
                 alerts.Add("Praca od : Za mało znaków");
                 state = false;
             }
+            else
+            {
+                if (int.Parse(pracownik_pracaod.Text) < 8 || int.Parse(pracownik_pracaod.Text) > 20)
+                {
+                    alerts.Add("Praca od : Poprawny zakres pomiędzy 8 i 20");
+                    state = false;
+                }
+            }
             if (pracownik_pracado.Text.Length < 1)
             {
                 alerts.Add("Praca do : Za mało znaków");
                 state = false;
             }
-            if (int.Parse(pracownik_pracado.Text) < int.Parse(pracownik_pracaod.Text))
+            else
             {
-                alerts.Add("Praca do : Nie może być mniejsze niż Praca od");
-                state = false;
-            }
-            if (int.Parse(pracownik_pracaod.Text) < 8 || int.Parse(pracownik_pracaod.Text) > 20)
-            {
-                alerts.Add("Praca do : Poprawny zakres pomiędzy 8 i 20");
-                state = false;
-            }
-            if (int.Parse(pracownik_pracado.Text) < 8 || int.Parse(pracownik_pracado.Text) > 20)
-            {
-                alerts.Add("Praca do : Poprawny zakres pomiędzy 8 i 20");
-                state = false;
+                if (int.Parse(pracownik_pracado.Text) < int.Parse(pracownik_pracaod.Text))
+                {
+                    alerts.Add("Praca do : Nie może być mniejsze niż Praca od");
+                    state = false;
+                }
+                if (int.Parse(pracownik_pracado.Text) < 8 || int.Parse(pracownik_pracado.Text) > 20)
+                {
+                    alerts.Add("Praca do : Poprawny zakres pomiędzy 8 i 20");
+                    state = false;
+                }
             }
             if (pracownik_stanowisko.Text.ToLower() == "lekarz")
             {
